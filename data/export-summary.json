@@ -7,5 +7,5 @@
   "seconds": 55.301248499949,
   "numerical_tokens": "preserved byte-for-byte; only private JSON string tokens replaced",
   "scope": "Weights and replay restoration, not a bit-identical restart of threads and clocks",
-  "redistribution": "Original code and weights MIT; human game data rights review pending before public upload"
+  "redistribution": "Original code and owned weights MIT; maintainer confirmed human corpus and derived-data distribution for community reuse on 2026-09-29; not relicensed as MIT."
 }
