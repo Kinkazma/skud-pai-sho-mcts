@@ -1,1 +1,5 @@
-{"defaultGeneration":"3.5","status":"historical-played-model","experimentalBranch":"experimental/gen5"}
+{
+  "defaultGeneration": "3.2",
+  "status": "historical-played-model",
+  "experimentalBranch": "experimental/gen5"
+}
