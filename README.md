@@ -1,3 +1,5 @@
+> This release branch defaults to **Generation 3.4**. Explicit generation arguments in the shared examples override that default. See `release.json`.
+
 # Skud Pai Sho MCTS — Gen3.5
 
 **Gen3.5 is the main, historically played model.** An `experimental/gen5` branch
