@@ -1,0 +1,67 @@
+{
+  "scope": "Fresh local clones, verified release archives, short execution tests; no strength claim or online publication.",
+  "resource_tests_passed": 19,
+  "gen3_training": [
+    {
+      "generation": "3.2",
+      "initial_updates": 5874377,
+      "final_updates": 5876622,
+      "fresh_positions": 449,
+      "replay_positions": 449,
+      "errors": []
+    },
+    {
+      "generation": "3.3",
+      "initial_updates": 24829177,
+      "final_updates": 24831697,
+      "fresh_positions": 504,
+      "replay_positions": 504,
+      "errors": []
+    },
+    {
+      "generation": "3.4",
+      "initial_updates": 26176897,
+      "final_updates": 26179577,
+      "fresh_positions": 536,
+      "replay_positions": 536,
+      "errors": []
+    },
+    {
+      "generation": "3.5",
+      "initial_updates": 26390182,
+      "final_updates": 26393357,
+      "fresh_positions": 635,
+      "replay_positions": 635,
+      "errors": []
+    }
+  ],
+  "gen35_continuation": {
+    "exact_durable_model_and_replay_selected": true,
+    "before_updates": 26393357,
+    "after_updates": 26396542,
+    "fresh_positions": 637,
+    "before_replay": 635,
+    "after_replay": 1272,
+    "errors": []
+  },
+  "gen31_training": [
+    {
+      "run": "train-3.1",
+      "updates_added": 4960,
+      "total_training_steps": 1681472,
+      "errors": []
+    },
+    {
+      "run": "continued-3.1",
+      "updates_added": 4800,
+      "total_training_steps": 1686272,
+      "errors": []
+    }
+  ],
+  "gen31_continuation": {
+    "exact_model_hash": true,
+    "restored_replay_examples": 992
+  },
+  "gen5": "All archive resources installed and reused; model preparation succeeded. No new Gen5 training run or exact historical continuation claimed.",
+  "fixed_during_check": "Sidecar configuration filenames now append their suffix, preserving dotted generation names."
+}
