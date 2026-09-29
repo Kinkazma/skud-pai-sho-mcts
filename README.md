@@ -25,3 +25,6 @@ Install `core-memory-01.tar`, `human-01.tar`, and **all three** Gen5 parts:
 or the automatic source ZIP. See [installation and verification](data/ASSETS.md)
 and [exact filenames, sizes and SHA-256 hashes](data/release-assets.json).
 Run `python3 scripts/assets.py verify --profile gen5` before using the launcher.
+
+See [installation and resource recovery](docs/INSTALL.md) and
+[the completeness inventory](docs/COMPLETENESS.md).

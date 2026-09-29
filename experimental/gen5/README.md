@@ -21,7 +21,7 @@ progress. Local acquisition/retention checks are not a general strength claim.
 Run these from the repository root on this branch:
 
 ```sh
-python3 scripts/assets.py verify --profile gen5
+python3 scripts/assets.py install --profile gen5 --from-dir /path/to/downloads
 python3 experimental/gen5/manage.py build
 python3 experimental/gen5/manage.py compare --budget 8 --seconds 30 --decisions 8 --output runs/gen5-load-check
 python3 experimental/gen5/manage.py train --budget 256 --workers 2 --seconds 120 --output runs/gen5-new
@@ -56,5 +56,6 @@ The matching release must supply `core-memory-01.tar`, `human-01.tar`, and
 `gen5-01.tar`, `gen5-02.tar`, `gen5-03.tar`. Extract every part into the repository
 root. [The resource catalog](../../data/release-assets.json) records exact sizes
 and hashes; [installation instructions](../../data/ASSETS.md) explain verification.
-These resource packs remain local until publication; no download URL is invented.
+The verified installer accepts local archives or an explicit HTTPS release base URL.
+The default URL remains unset until publication.
 The launcher checks missing/incomplete groups before preparing models or training.
