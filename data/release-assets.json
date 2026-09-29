@@ -1,0 +1,110 @@
+{
+  "status": "local-preparation-not-uploaded",
+  "release_url": null,
+  "max_archive_bytes": 1800000000,
+  "size_unit": "decimal bytes; includes archive metadata",
+  "profiles": {
+    "gen3": [
+      "core-memory"
+    ],
+    "gen35-replay": [
+      "core-memory",
+      "gen35-replay"
+    ],
+    "human": [
+      "human"
+    ],
+    "gen4": [],
+    "gen5": [
+      "core-memory",
+      "human",
+      "gen5"
+    ],
+    "apple": [
+      "apple"
+    ]
+  },
+  "groups": {
+    "core-memory": {
+      "files": 4,
+      "bytes": 195699274,
+      "manifest": "data/manifests/core-memory.json",
+      "archive_bytes": 195706880,
+      "parts": [
+        {
+          "file": "core-memory-01.tar",
+          "bytes": 195706880,
+          "sha256": "dcfc002f459537e855770b3affd844d1b48668116b671f08964d5dad66ef0ac5"
+        }
+      ]
+    },
+    "human": {
+      "files": 1378,
+      "bytes": 8342451,
+      "manifest": "data/manifests/human.json",
+      "archive_bytes": 9390080,
+      "parts": [
+        {
+          "file": "human-01.tar",
+          "bytes": 9390080,
+          "sha256": "767bb11d8c327e789d9dee6d0d392db909d6528b8aab9b84de8cbd383e25f804",
+          "files": 1378
+        }
+      ]
+    },
+    "gen35-replay": {
+      "files": 46774,
+      "bytes": 888088181,
+      "manifest": "data/manifests/gen35-replay.json",
+      "archive_bytes": 924037120,
+      "parts": [
+        {
+          "file": "gen35-replay-01.tar",
+          "bytes": 924037120,
+          "sha256": "98bf0cd501e74e21a156d0c21dd066733a19842d146cd5013632b2ffb06938e8",
+          "files": 46774
+        }
+      ]
+    },
+    "apple": {
+      "files": 4,
+      "bytes": 225565489,
+      "manifest": "data/manifests/apple.json",
+      "archive_bytes": 225576960,
+      "parts": [
+        {
+          "file": "apple-01.tar",
+          "bytes": 225576960,
+          "sha256": "db9328a670156439fd95ed85012d401e42ef397246e17904eaec13982b9950f2",
+          "files": 4
+        }
+      ]
+    },
+    "gen5": {
+      "files": 19183,
+      "bytes": 3879127048,
+      "manifest": "data/manifests/gen5.json",
+      "archive_bytes": 3893852160,
+      "parts": [
+        {
+          "file": "gen5-01.tar",
+          "bytes": 1799434240,
+          "sha256": "d483572b2db3e0614bb8b5522cec7b5127337e62bf0fbdf749889c2ab06c6394",
+          "files": 7789
+        },
+        {
+          "file": "gen5-02.tar",
+          "bytes": 1799997440,
+          "sha256": "b6d74fac92f6d20f9ca71b9d4c714afd4a6cb2655ecd13eb83d3bbaa193a961a",
+          "files": 9949
+        },
+        {
+          "file": "gen5-03.tar",
+          "bytes": 294420480,
+          "sha256": "64294e5fed6c07554d947e1d21a027b7af600eb911e9c160d73f2c102f401c27",
+          "files": 1445
+        }
+      ]
+    }
+  }
+}

@@ -21,6 +21,7 @@ progress. Local acquisition/retention checks are not a general strength claim.
 Run these from the repository root on this branch:
 
 ```sh
+python3 scripts/assets.py verify --profile gen5
 python3 experimental/gen5/manage.py build
 python3 experimental/gen5/manage.py compare --budget 8 --seconds 30 --decisions 8 --output runs/gen5-load-check
 python3 experimental/gen5/manage.py train --budget 256 --workers 2 --seconds 120 --output runs/gen5-new
@@ -48,3 +49,12 @@ engineering checks in the original research. They were staged after the final
 campaign pause. They have not been demonstrated to solve Gen5's long-term learning
 problem in a subsequent production campaign. The historical sources/tests and
 experimental state are supplied to make that investigation possible.
+
+## Download all required resource parts
+
+The matching release must supply `core-memory-01.tar`, `human-01.tar`, and
+`gen5-01.tar`, `gen5-02.tar`, `gen5-03.tar`. Extract every part into the repository
+root. [The resource catalog](../../data/release-assets.json) records exact sizes
+and hashes; [installation instructions](../../data/ASSETS.md) explain verification.
+These resource packs remain local until publication; no download URL is invented.
+The launcher checks missing/incomplete groups before preparing models or training.

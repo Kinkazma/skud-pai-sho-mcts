@@ -3,6 +3,8 @@
 import argparse,hashlib,json,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT))
+from scripts.assets import require_groups
 EXP=ROOT/'experimental/gen5'
 BINARY=EXP/'target/release/paisho-gen5'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -13,6 +15,7 @@ def localize(v):
  return v
 
 def prepare():
+ require_groups(['core-memory','human','gen5'])
  out=ROOT/'portable-models/gen5';out.mkdir(parents=True,exist_ok=True)
  for folder in ['models','inputs']:
   for p in (EXP/folder).glob('*.json'):
