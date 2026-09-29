@@ -1,0 +1,186 @@
+{
+  "model": "models/gen3-5.json",
+  "output": "runs/gen3.5-continuation",
+  "seconds": 3600.0,
+  "threads": 10,
+  "actors": 10,
+  "parallel_candidates": false,
+  "fixed_actor_budgets": true,
+  "archive_workers": 2,
+  "games": 10000000,
+  "budgets": [
+    512,
+    256,
+    128,
+    64,
+    32,
+    512
+  ],
+  "caps": [
+    58.0,
+    34.0,
+    25.0,
+    17.5,
+    8.0,
+    58.0
+  ],
+  "decisions": 2048,
+  "samples": 128,
+  "rate": 0.01,
+  "lambda": 0.5,
+  "replay_capacity": 65536,
+  "replay_ratio": 4,
+  "replay_max_bytes": 51539607552,
+  "checkpoint_seconds": 30.0,
+  "seed": 1904663722,
+  "replay_index": "assets/gen3.5-replay/replay.json",
+  "learn": true,
+  "historical_pool": [
+    {
+      "generation": "Gen3.3",
+      "budget": 32,
+      "path": "models/references/reference-f71cf7dfc125611dd3c9097c412ab7c798a6529431db553fc8d02c94014e38e1.json",
+      "sha256": "3421b239fd69943c00a17c0e378492de2bcdc7de45b9e436bc654d4cfd257c69",
+      "solver": true
+    },
+    {
+      "generation": "Gen3.3",
+      "budget": 64,
+      "path": "models/references/reference-f71cf7dfc125611dd3c9097c412ab7c798a6529431db553fc8d02c94014e38e1.json",
+      "sha256": "3421b239fd69943c00a17c0e378492de2bcdc7de45b9e436bc654d4cfd257c69",
+      "solver": true
+    },
+    {
+      "generation": "Gen3.3",
+      "budget": 128,
+      "path": "models/references/reference-afc265e32574be6d1a803fd48edb5f59245d7cc7db5e09f81eaf355f91af7e20.json",
+      "sha256": "62fac7160ffe8604a26eaf384080c34f061e3b8fd63edea75afa73dd3c39f723",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.3",
+      "budget": 256,
+      "path": "models/references/reference-681771d8fc29ce22e50d6fd3fb90d022cffb9d6197f97a7b05fd864d9ad405ec.json",
+      "sha256": "f456bef70a54fe6a8a91e6026db4470e3b69aaacad9d6456907fe648276ca19a",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.3",
+      "budget": 512,
+      "path": "models/references/reference-f71cf7dfc125611dd3c9097c412ab7c798a6529431db553fc8d02c94014e38e1.json",
+      "sha256": "3421b239fd69943c00a17c0e378492de2bcdc7de45b9e436bc654d4cfd257c69",
+      "solver": true
+    },
+    {
+      "generation": "Gen3.2",
+      "budget": 32,
+      "path": "models/references/reference-afc265e32574be6d1a803fd48edb5f59245d7cc7db5e09f81eaf355f91af7e20.json",
+      "sha256": "62fac7160ffe8604a26eaf384080c34f061e3b8fd63edea75afa73dd3c39f723",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.2",
+      "budget": 64,
+      "path": "models/references/reference-afc265e32574be6d1a803fd48edb5f59245d7cc7db5e09f81eaf355f91af7e20.json",
+      "sha256": "62fac7160ffe8604a26eaf384080c34f061e3b8fd63edea75afa73dd3c39f723",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.2",
+      "budget": 128,
+      "path": "models/references/reference-afc265e32574be6d1a803fd48edb5f59245d7cc7db5e09f81eaf355f91af7e20.json",
+      "sha256": "62fac7160ffe8604a26eaf384080c34f061e3b8fd63edea75afa73dd3c39f723",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.2",
+      "budget": 256,
+      "path": "models/references/reference-681771d8fc29ce22e50d6fd3fb90d022cffb9d6197f97a7b05fd864d9ad405ec.json",
+      "sha256": "f456bef70a54fe6a8a91e6026db4470e3b69aaacad9d6456907fe648276ca19a",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.2",
+      "budget": 512,
+      "path": "models/references/reference-afc265e32574be6d1a803fd48edb5f59245d7cc7db5e09f81eaf355f91af7e20.json",
+      "sha256": "62fac7160ffe8604a26eaf384080c34f061e3b8fd63edea75afa73dd3c39f723",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.1",
+      "budget": 32,
+      "path": "models/references/reference-6a38b20b829f8d875b2f1fd1c93074974c1b4d8443b08b7c755807135f591735.json",
+      "sha256": "80ab9ee4ade6a6b7399538ce5fe62e02b4f9aa1bf6ceea561586ad3990f2a032",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.1",
+      "budget": 64,
+      "path": "models/references/reference-6a38b20b829f8d875b2f1fd1c93074974c1b4d8443b08b7c755807135f591735.json",
+      "sha256": "80ab9ee4ade6a6b7399538ce5fe62e02b4f9aa1bf6ceea561586ad3990f2a032",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.1",
+      "budget": 128,
+      "path": "models/references/reference-6a38b20b829f8d875b2f1fd1c93074974c1b4d8443b08b7c755807135f591735.json",
+      "sha256": "80ab9ee4ade6a6b7399538ce5fe62e02b4f9aa1bf6ceea561586ad3990f2a032",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.1",
+      "budget": 256,
+      "path": "models/references/reference-6a38b20b829f8d875b2f1fd1c93074974c1b4d8443b08b7c755807135f591735.json",
+      "sha256": "80ab9ee4ade6a6b7399538ce5fe62e02b4f9aa1bf6ceea561586ad3990f2a032",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.1",
+      "budget": 512,
+      "path": "models/references/reference-6a38b20b829f8d875b2f1fd1c93074974c1b4d8443b08b7c755807135f591735.json",
+      "sha256": "80ab9ee4ade6a6b7399538ce5fe62e02b4f9aa1bf6ceea561586ad3990f2a032",
+      "solver": false
+    },
+    {
+      "generation": "Gen3.4",
+      "budget": 32,
+      "path": "models/references/reference-0cc54b95d1e6d6efc9db0031a6ee31a4b45c58fd769baa23c7843b4186022d9d.json",
+      "sha256": "8320d7ba9e3b173a07f6c4785cf1465a64f2f1119dda206358d02e0d49cf3d85",
+      "solver": true
+    },
+    {
+      "generation": "Gen3.4",
+      "budget": 64,
+      "path": "models/references/reference-0cc54b95d1e6d6efc9db0031a6ee31a4b45c58fd769baa23c7843b4186022d9d.json",
+      "sha256": "8320d7ba9e3b173a07f6c4785cf1465a64f2f1119dda206358d02e0d49cf3d85",
+      "solver": true
+    },
+    {
+      "generation": "Gen3.4",
+      "budget": 128,
+      "path": "models/references/reference-0cc54b95d1e6d6efc9db0031a6ee31a4b45c58fd769baa23c7843b4186022d9d.json",
+      "sha256": "8320d7ba9e3b173a07f6c4785cf1465a64f2f1119dda206358d02e0d49cf3d85",
+      "solver": true
+    },
+    {
+      "generation": "Gen3.4",
+      "budget": 256,
+      "path": "models/references/reference-0cc54b95d1e6d6efc9db0031a6ee31a4b45c58fd769baa23c7843b4186022d9d.json",
+      "sha256": "8320d7ba9e3b173a07f6c4785cf1465a64f2f1119dda206358d02e0d49cf3d85",
+      "solver": true
+    },
+    {
+      "generation": "Gen3.4",
+      "budget": 512,
+      "path": "models/references/reference-0cc54b95d1e6d6efc9db0031a6ee31a4b45c58fd769baa23c7843b4186022d9d.json",
+      "sha256": "8320d7ba9e3b173a07f6c4785cf1465a64f2f1119dda206358d02e0d49cf3d85",
+      "solver": true
+    }
+  ],
+  "historical_reference": null,
+  "historical_reference_sha256": null,
+  "historical_every": 5,
+  "solver": true,
+  "tactical_positions": 0,
+  "correction_replay": true
+}

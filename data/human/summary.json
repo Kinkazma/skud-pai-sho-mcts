@@ -1,0 +1,17 @@
+{
+  "scanned": 1375,
+  "converted": 1375,
+  "excluded": 0,
+  "unique_records": 1375,
+  "shortened_records": 0,
+  "discarded_decisions": 0,
+  "changed_outcomes": 0,
+  "outcomes": {
+    "G": 705,
+    "H": 614,
+    "ongoing": 50,
+    "draw": 6
+  },
+  "excluded_reasons": {},
+  "transferred_search_targets": 0
+}

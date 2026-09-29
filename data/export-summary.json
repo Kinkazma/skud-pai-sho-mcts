@@ -1,0 +1,11 @@
+{
+  "files": 46773,
+  "fifo_positions": 65536,
+  "correction_positions": 128718,
+  "bytes": 849762829,
+  "human_records": 1375,
+  "seconds": 55.301248499949,
+  "numerical_tokens": "preserved byte-for-byte; only private JSON string tokens replaced",
+  "scope": "Weights and replay restoration, not a bit-identical restart of threads and clocks",
+  "redistribution": "Original code and weights MIT; human game data rights review pending before public upload"
+}

@@ -1,0 +1,12 @@
+name: CPU contracts
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.77.0
+      - run: cargo test --locked -p paisho-core --lib
+      - run: cargo test --locked -p paisho-train --test gen3_value_residual
