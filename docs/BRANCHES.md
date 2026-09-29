@@ -15,3 +15,6 @@ rules and MPSGraph checkpoints. Their internal generation counters (3 and 63)
 are **not** the public Scale generations or Skud Gen3.5. The early Micro Gen4
 checkpoint is kept with the experimental workspace. No missing older generation
 has been invented to make the numbering look continuous.
+
+`experimental/gen4` provides the recovered CPU Micro Gen4 weights and native
+play/self-play commands. Its bounded two-seat load check passed with no errors.
