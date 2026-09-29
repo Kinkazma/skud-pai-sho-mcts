@@ -40,19 +40,22 @@ The final part can be smaller. There is no need to download every generation.
 ```sh
 # List filenames, sizes and hashes before obtaining the matching release assets.
 python3 scripts/assets.py list --profile gen35-replay
-
-# From the repository root, after downloading these files:
-tar -xf /path/to/downloads/core-memory-01.tar
-tar -xf /path/to/downloads/gen35-replay-01.tar
-python3 scripts/assets.py verify --profile gen35-replay
+# Verify and install downloaded archives automatically, without manual extraction.
+python3 scripts/assets.py install --profile gen35-replay --from-dir /path/to/downloads
 python3 manage.py setup
 ```
+
+The installer also supports `--base-url` for a real HTTPS release asset directory.
+It verifies and reuses intact installed files and cached archives, resumes partial
+downloads where supported, and verifies all members before installation. Missing
+or corrupt parts leave that group's existing data untouched. See
+[installation and recovery](../docs/INSTALL.md) for details.
 
 For Gen5, install `core-memory-01.tar`, `human-01.tar`, `gen5-01.tar`,
 `gen5-02.tar` **and** `gen5-03.tar`, then run:
 
 ```sh
-python3 scripts/assets.py verify --profile gen5
+python3 scripts/assets.py install --profile gen5 --from-dir /path/to/downloads
 python3 experimental/gen5/manage.py prepare
 ```
 
@@ -60,7 +63,7 @@ Run the Gen5 commands on `experimental/gen5`. Small tracked files in that branch
 are also checked by the Gen5 manifest. The quick `check --profile NAME` command
 checks presence and lengths; `verify` checks every file's SHA-256. Launchers fail
 with the names of missing/incomplete groups before native training starts.
-The release download step will be connected to real URLs only after publication.
+The downloader is ready; the default URL will be filled only when a real release exists.
 Moving a checkout requires running its preparation command again to regenerate
 ignored local model paths; it does not require downloading intact assets again.
 
