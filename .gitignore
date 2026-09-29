@@ -15,3 +15,6 @@ packs/
 /data/human/records/
 /data/human/records.json
 /experimental/gen5/inputs/human-dataset.json
+
+.cache/
+.asset-install-*/
