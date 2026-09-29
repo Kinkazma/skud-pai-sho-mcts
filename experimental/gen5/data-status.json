@@ -1,0 +1,11 @@
+{
+  "fifo_files": 19049,
+  "fifo_positions": 327680,
+  "numerical_tokens": "unchanged in target sources",
+  "missing_for_exact_historical_resume": [
+    "durable case archive",
+    "older recall archives",
+    "reconciliation of hashes after path relocation in resume metadata"
+  ],
+  "source_note": "Prepared consolidation/recall repairs were not activated in a subsequent production campaign."
+}

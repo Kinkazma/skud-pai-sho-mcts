@@ -1,0 +1,137 @@
+{
+  "model": "experimental/gen5/models/learner.json",
+  "reference": "experimental/gen5/inputs/reference-gen3-1.json",
+  "human_dataset": "experimental/gen5/inputs/human-dataset.json",
+  "learn": true,
+  "historical": false,
+  "history_interval": 0,
+  "threads": 10,
+  "actors": 20,
+  "games": 10000000,
+  "seconds": 86400,
+  "game_seconds": 8.0,
+  "budgets": [
+    [
+      256,
+      0.5
+    ],
+    [
+      512,
+      0.5
+    ]
+  ],
+  "seed": 95717,
+  "mode": "puct",
+  "secondary_threads": 2,
+  "reuse_idle_secondary": false,
+  "macos_qos": false,
+  "historical_seconds": [
+    [
+      32,
+      3.25
+    ],
+    [
+      64,
+      7.75
+    ],
+    [
+      128,
+      0.75
+    ]
+  ],
+  "historical_capacity_fraction": 0.075,
+  "replay_index": "assets/gen5-replay/replay.index.json",
+  "history_seconds": 600.0,
+  "checkpoint_fraction": 0,
+  "output": "runs/gen5-research",
+  "history_initial_pairs": 50,
+  "history_decision_limit": 800,
+  "evaluation_anchor": "experimental/gen5/inputs/evaluation-anchor.json",
+  "resume_progress": "assets/gen5-replay/resume-progress.json",
+  "historical_unlimited_budgets": [
+    32,
+    64,
+    128
+  ],
+  "forced_playout_strength": 2.0,
+  "proof_search": true,
+  "correction_replay_fraction": 0.05,
+  "correction_capacity": 8192,
+  "replay_capacity": 327680,
+  "replay_ratio": 4,
+  "human_fraction": 0.02,
+  "policy_min_budget": 256,
+  "decision_limit": 800,
+  "case_curriculum": {
+    "archive": "assets/gen5-durable-current",
+    "reversals": 3,
+    "losses": 10,
+    "unresolved_attempts": 10,
+    "reanalysis_positions": 4,
+    "reanalysis_budget": 512,
+    "durable_fraction": 0.1
+  },
+  "checkpoint_seconds": 30,
+  "inline_learning": true,
+  "legacy_replay": true,
+  "control_stop": true,
+  "historical_replay_fraction": 0,
+  "archive_workers": 2,
+  "replay_max_bytes": 34359738368,
+  "structural_repair": true,
+  "recall_fraction": 0.5,
+  "recall_archive_sources": [
+    "assets/gen5-recall-v2",
+    "assets/gen5-recall-v1",
+    "assets/gen5-recall-original"
+  ],
+  "search_pool_shards": 5,
+  "opponents": [
+    {
+      "generation": "3.1",
+      "model": "experimental/gen5/inputs/opponent-gen3-1.json",
+      "sha256": "b7195ad394f423cf5a2421638840ec2817d7e214470bd7cc0b99ef53705e0477",
+      "solver": false
+    },
+    {
+      "generation": "3.2",
+      "model": "experimental/gen5/inputs/opponent-gen3-2.json",
+      "sha256": "62fac7160ffe8604a26eaf384080c34f061e3b8fd63edea75afa73dd3c39f723",
+      "solver": false
+    },
+    {
+      "generation": "3.3",
+      "model": "experimental/gen5/inputs/opponent-gen3-3.json",
+      "sha256": "3421b239fd69943c00a17c0e378492de2bcdc7de45b9e436bc654d4cfd257c69",
+      "solver": true
+    },
+    {
+      "generation": "3.4",
+      "model": "experimental/gen5/inputs/opponent-gen3-4.json",
+      "sha256": "03b91e53a30276607dfdabd19e56da21f23217fd379ae7dcb51166f760af85b3",
+      "solver": true
+    },
+    {
+      "generation": "3.5",
+      "model": "experimental/gen5/inputs/opponent-gen3-5.json",
+      "sha256": "b3013f6c29c4931fb64520f4628295137f1c3b3ae13201b629c9ca937deddbc4",
+      "solver": true
+    }
+  ],
+  "checkpoint_keep": 64,
+  "proof_recall": true,
+  "learning_loop_repair": true,
+  "value_policy_strength": 16.0,
+  "publication_guard": "experimental/gen5/inputs/publication-guard.json",
+  "learning_loop_v2": true,
+  "publication_validation": "experimental/gen5/inputs/publication-validation.json",
+  "neural_memory": true,
+  "learning_loop_v3": true,
+  "publication_transfer": true,
+  "minimum_search_depth": 5,
+  "end_unix_seconds": null,
+  "structured_recall_anchors": {
+    "path": "assets/gen5-replay/structured-anchors.json",
+    "sha256": "2807c26a56a39dcfd0d4e023d2f3bf58b6d0517572a42e1bcb4361c9f617052b"
+  }
+}

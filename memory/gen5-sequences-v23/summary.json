@@ -1,0 +1,18 @@
+{
+  "bonus_entries": 343022,
+  "bytes": 386996904,
+  "clusters": 256,
+  "conversion_seconds": 18.050453167,
+  "entries": 802760,
+  "games": 50000,
+  "heldout_games": 291,
+  "human_games": 1375,
+  "phase_coverage": true,
+  "root_only": true,
+  "rules": "skud-pai-sho-gen5-v1",
+  "segments": "20 completed player turns, bonus attached, final partial retained",
+  "sha256": "412607c0f92b095dcacbd579474a70fdeb9fcfb4a1d24f1592cfca4d81fd3126",
+  "spatial_retrieval": true,
+  "total_seconds": 20.890609458,
+  "training_source_exclusion": true
+}

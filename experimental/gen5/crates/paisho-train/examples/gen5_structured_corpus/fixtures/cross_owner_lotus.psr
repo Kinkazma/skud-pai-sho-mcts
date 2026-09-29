@@ -1,0 +1,118 @@
+PAISHO-RECORD 1
+rules skud-pai-sho-gen5-v1
+start R5
+host-accents 1,1,1,1
+guest-accents 0,1,1,2
+actions
+plant W3 8,0
+arrange 0,8 0,3
+arrange 0,-8 0,-3
+plant R4 -8,0
+arrange 0,-3 -1,-1
+arrange 0,3 5,3
+arrange 8,0 6,-1
+bonus-plant W3 0,8
+arrange -8,0 -7,3
+bonus-plant R5 -8,0
+arrange 0,8 -1,6
+bonus-plant R5 0,8
+arrange -8,0 -7,-2
+bonus-plant R4 8,0
+arrange 0,8 3,6
+accent B move -7,3 -8,4
+arrange -8,4 -7,2
+accent B move -1,-1 -2,-2
+arrange -1,6 -2,6
+skip-bonus
+arrange 5,3 7,2
+accent K at -1,-2
+arrange -2,-2 -2,-4
+accent K at 6,-2
+arrange -7,-2 -7,-4
+arrange 6,-1 3,-1
+skip-bonus
+arrange 8,0 7,0
+accent R at 3,-4
+plant W5 8,0
+arrange 7,0 7,-4
+arrange 8,0 7,2
+arrange 7,-4 7,-5
+plant W4 -8,0
+plant R5 8,0
+arrange -8,0 -7,2
+accent B at 3,-4
+arrange 8,0 7,2
+accent W at -2,-1
+plant W5 8,0
+arrange 7,2 3,2
+arrange -2,-4 -3,-4
+arrange 7,-5 3,-5
+arrange 3,-1 3,-4
+skip-bonus
+arrange -7,-4 -3,-3
+plant W5 -8,0
+arrange 3,-5 4,-3
+plant W4 0,-8
+plant W3 0,8
+arrange -8,0 -7,1
+plant-special L -8,0
+arrange 0,8 0,5
+plant R3 0,8
+arrange 0,5 -1,3
+arrange -3,-4 -5,-4
+arrange -3,-3 -5,-3
+skip-bonus
+arrange -8,0 -7,-1
+plant-special O -8,0
+arrange -1,3 -3,2
+skip-bonus
+arrange -8,0 -5,-3
+plant W5 -8,0
+arrange -5,-3 -3,-1
+arrange -3,2 -5,2
+arrange -3,-1 1,-1
+arrange 4,-3 3,0
+skip-bonus
+arrange -2,6 -3,6
+arrange -8,0 -3,0
+arrange 1,-1 -3,0
+plant W4 -8,0
+arrange -3,0 -5,2
+arrange -8,0 -6,-1
+bonus-plant W5 -8,0
+arrange -5,2 -2,0
+arrange -8,0 -6,1
+bonus-plant W5 -8,0
+arrange 3,-4 4,-4
+arrange 3,2 4,2
+arrange -2,0 3,0
+arrange -6,1 -3,3
+arrange 3,0 4,2
+arrange -6,-1 -5,0
+arrange 4,2 1,3
+arrange -8,0 -5,2
+bonus-plant W3 -8,0
+arrange -5,-4 -4,-4
+arrange -5,0 -4,0
+arrange -3,6 -6,6
+arrange -8,0 -6,0
+bonus-plant W4 -8,0
+arrange -7,1 -6,-1
+skip-bonus
+arrange -5,2 -4,2
+skip-bonus
+arrange -7,2 -5,0
+arrange -8,0 -6,2
+bonus-plant R3 -8,0
+arrange -6,6 -3,6
+arrange -4,2 -3,2
+arrange -3,6 -4,6
+arrange -3,2 -4,2
+skip-bonus
+arrange -5,0 -5,1
+arrange -8,0 -7,2
+plant-special L -8,0
+arrange -6,-1 -5,-3
+skip-bonus
+arrange -6,0 -6,-1
+skip-bonus

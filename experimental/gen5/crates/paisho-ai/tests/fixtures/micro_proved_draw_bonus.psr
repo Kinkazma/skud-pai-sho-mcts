@@ -1,0 +1,142 @@
+PAISHO-RECORD 1
+rules skud-pai-sho-gen5-v1
+start R5
+host-accents 1,1,1,1
+guest-accents 0,2,1,1
+actions
+plant R4 8,0
+plant R4 -8,0
+arrange 0,-8 0,-3
+arrange 0,8 0,3
+arrange 8,0 7,-3
+bonus-plant R3 8,0
+plant R3 0,8
+arrange 8,0 7,1
+bonus-plant R3 8,0
+arrange -8,0 -6,-2
+plant R3 -8,0
+plant R3 0,-8
+arrange 0,-3 -1,-3
+arrange 0,8 -1,6
+arrange -8,0 -6,1
+plant R3 -8,0
+arrange 8,0 6,-1
+arrange -6,-2 -3,-1
+plant W5 8,0
+plant W3 0,8
+arrange 8,0 6,1
+bonus-plant W5 8,0
+arrange 0,8 0,7
+skip-bonus
+arrange 8,0 4,-1
+bonus-plant W5 8,0
+plant W3 0,8
+arrange 8,0 7,-1
+bonus-plant W3 8,0
+arrange -3,-1 -1,-1
+skip-bonus
+arrange 7,-3 6,-3
+accent K at -1,7
+arrange 0,3 1,0
+arrange 4,-1 1,0
+arrange 0,8 3,8
+arrange 1,0 0,-1
+skip-bonus
+arrange -1,-1 1,1
+arrange 8,0 7,-2
+arrange 1,1 4,0
+arrange 7,-2 5,-3
+bonus-plant W3 8,0
+plant W4 0,8
+arrange 5,-3 3,-2
+skip-bonus
+arrange 4,0 1,1
+arrange -1,-3 -1,-2
+skip-bonus
+arrange 0,-8 1,-6
+plant-special O 0,-8
+arrange -6,1 -5,-1
+skip-bonus
+arrange 0,-8 0,-2
+arrange -5,-1 -4,-3
+skip-bonus
+plant R5 0,-8
+arrange 8,0 7,-2
+plant W3 8,0
+arrange 7,-2 5,-2
+arrange 8,0 7,1
+plant W3 8,0
+arrange 7,1 6,-1
+arrange 8,0 7,2
+plant R5 8,0
+arrange -4,-3 -3,-1
+skip-bonus
+arrange 8,0 6,1
+skip-bonus
+arrange 7,-1 6,1
+plant W4 8,0
+arrange -3,-1 -4,-3
+accent B move 1,1 1,0
+arrange 0,-8 0,-3
+arrange -4,-3 -3,-1
+bonus-plant R5 0,-8
+arrange 0,-3 0,-1
+accent B at -1,7
+arrange 0,-8 3,-6
+bonus-plant R5 0,-8
+arrange 0,-1 -2,-1
+arrange 3,-2 2,-1
+arrange -8,0 -6,0
+skip-bonus
+arrange 0,-8 2,-5
+bonus-plant W4 0,-8
+plant R4 -8,0
+arrange 2,-5 -1,-3
+skip-bonus
+arrange 0,7 -2,7
+skip-bonus
+arrange 0,-8 2,-7
+bonus-plant W4 0,-8
+arrange -8,0 -6,2
+plant-special L -8,0
+arrange 3,-6 2,-5
+skip-bonus
+arrange 0,8 1,8
+skip-bonus
+arrange 5,-2 3,-3
+skip-bonus
+plant W4 0,8
+arrange 0,-8 3,-7
+bonus-plant W4 0,-8
+arrange -8,0 -7,1
+arrange 3,-7 2,-4
+skip-bonus
+arrange 0,-2 3,-3
+arrange 2,-1 3,-3
+accent W at -1,-1
+plant W5 -8,0
+arrange 6,-3 5,-2
+skip-bonus
+arrange -2,0 1,2
+skip-bonus
+arrange 2,-5 7,-5
+skip-bonus
+arrange 1,8 2,7
+accent W at 5,-3
+arrange -2,-2 -7,-2
+skip-bonus
+arrange -8,0 -7,-2
+skip-bonus
+arrange -3,-1 -3,-2
+skip-bonus
+plant R4 -8,0
+arrange 6,1 4,-2
+accent W at -7,2
+arrange -8,1 -7,1
+skip-bonus
+arrange 0,-8 3,-7
+bonus-plant R4 0,-8
+arrange 8,0 6,-2
+accent K at 2,-2
+arrange 0,-8 -1,-5
+bonus-plant R4 8,0

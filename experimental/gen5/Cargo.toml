@@ -1,0 +1,29 @@
+[workspace]
+members = [
+    "crates/paisho-core",
+    "crates/paisho-ai",
+    "crates/paisho-league",
+    "crates/paisho-model",
+    "crates/paisho-mpsgraph-client",
+    "crates/paisho-rating",
+    "crates/paisho-replay",
+    "crates/paisho-train",
+    "crates/paisho-platform",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+rust-version = "1.77"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.dependencies]
+rayon = "=1.10.0"
+rayon-core = "=1.12.1"
+sha2 = "=0.10.8"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = { version = "=1.0.145", features = ["float_roundtrip"] }
+nalgebra = "=0.33.2"
+minilp = "=0.2.2"
