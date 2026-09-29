@@ -40,7 +40,8 @@ playing strength. No tested model was promoted into the supplied frozen models.
 
 ## Remaining release work
 
-- Confirm redistribution terms of the human corpus and derived data before public upload.
+- Human corpus distribution was confirmed by the project maintainer on 2026-09-29;
+  it is not automatically relicensed as MIT.
 - Finish the full historical Gen5 durable-archive/identity migration if an exact
   campaign continuation is required; the current experimental launcher starts anew.
 - Reconcile/export older campaign schedules and archival reference histories beyond
@@ -51,3 +52,13 @@ playing strength. No tested model was promoted into the supplied frozen models.
   analysis dashboard with every chart and publication detail.
 - Create actual GitHub releases, upload verified assets and connect a downloader
   only after the local-only instruction changes. No remote URL is fabricated.
+
+## Generation resource archives (2026-09-29)
+
+Seven TAR files were prepared locally, each at most 1,800,000,000 bytes including
+headers/padding. Every archive hash and all 67,343 contained files were verified
+against the per-file manifests. Gen5 has three parts; Gen3.5 replay and common
+banks each have one. Separate human and Apple groups remain optional by use.
+Six packaging tests cover exact size bounds with long/Unicode paths, deterministic
+metadata, tampering, missing parts, oversize members and overwrite refusal.
+See [the resource catalog](../data/release-assets.json). No assets were uploaded.

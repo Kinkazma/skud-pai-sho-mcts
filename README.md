@@ -8,3 +8,9 @@ stronger successor. See [Gen4 instructions](experimental/gen4/README.md).
 tools, optional Apple code and data manifests remain available.
 
 [Try the game on the public website](https://gaeldauchy.com/pai-sho/).
+
+## Release resources
+
+The native Gen4 commands above need no extra resource pack. The root Gen3
+compatibility tool needs `core-memory`. See [the generation resource table](data/ASSETS.md)
+and [archive names and hashes](data/release-assets.json) before installation.
