@@ -3,18 +3,23 @@
 import argparse,json,os,shutil,subprocess,sys
 from pathlib import Path
 from scripts.prepare_models import ROOT,prepare,sha
-from scripts.assets import require_groups
+from scripts.assets import require_groups, PROFILES
+from scripts.asset_install import install
 
 def run(args):subprocess.run([str(a) for a in args],cwd=ROOT,check=True)
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['doctor','setup','prepare','play','serve','train','pause','status','dashboard'])
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['doctor','install','setup','prepare','play','serve','train','pause','status','dashboard'])
  p.add_argument('--generation',default=None);p.add_argument('--opponent',default='3.1');p.add_argument('--budget',type=int,default=32);p.add_argument('--seed',type=int,default=71)
  p.add_argument('--seconds',type=int,default=60);p.add_argument('--workers',type=int,default=min(4,os.cpu_count() or 1));p.add_argument('--decisions',type=int,default=512)
  p.add_argument('--heuristic-reference',action='store_true');p.add_argument('--resume-from');p.add_argument('--output',default='runs/new');p.add_argument('--replay',action='store_true');p.add_argument('--replay-gib',type=int,default=12);p.add_argument('--port',type=int,default=8770)
+ p.add_argument('--resource-profile',choices=PROFILES,default='gen3');p.add_argument('--asset-dir');p.add_argument('--asset-base-url')
  a=p.parse_args();g=a.generation or json.loads((ROOT/'release.json').read_text())['defaultGeneration']
  trainer=ROOT/'target/release/paisho-gen32';suite=ROOT/'inference/target/release/paisho-gen3-suite';output=(ROOT/a.output).resolve()
  if a.command=='doctor':
   print(json.dumps({'python':sys.version.split()[0],'cargo':shutil.which('cargo'),'platform':sys.platform,'cpus':os.cpu_count(),'generation':g,'trainer':trainer.is_file(),'inference':suite.is_file(),'assetsPresent':all((ROOT/k).exists() for k in json.loads((ROOT/'assets-manifest.json').read_text())['files'])},indent=2));return
+ if a.command in ['install','setup']:
+  install(PROFILES[a.resource_profile],a.asset_dir,a.asset_base_url)
+  if a.command=='install':return
  if a.command=='setup':
   require_groups(['core-memory'])
   if not shutil.which('cargo'):raise SystemExit('Install Rust through rustup first; see README prerequisites.')
@@ -54,4 +59,6 @@ def main():
    prior=(ROOT/a.resume_from).resolve();previous=json.loads((prior/'checkpoint.json').read_text())
    config['model']=previous['model'];config['replay_index']=previous['replay_index']
   output.parent.mkdir(parents=True,exist_ok=True);cfg=output.with_suffix('.config.json');cfg.write_text(json.dumps(config,indent=2)+'\n');run([trainer,'run',cfg])
-if __name__=='__main__':main()
+if __name__=='__main__':
+ try:main()
+ except (ValueError,OSError,KeyError,subprocess.CalledProcessError) as error:raise SystemExit(str(error)) from error

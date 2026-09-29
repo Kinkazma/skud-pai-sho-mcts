@@ -50,8 +50,9 @@ playing strength. No tested model was promoted into the supplied frozen models.
   historical Apple campaign continuation remains unqualified.
 - The English dashboard is a working portable controller, not yet the full old
   analysis dashboard with every chart and publication detail.
-- Create actual GitHub releases, upload verified assets and connect a downloader
-  only after the local-only instruction changes. No remote URL is fabricated.
+- Create actual GitHub releases, upload verified assets and set their real URLs
+  only after the local-only instruction changes. The downloader is implemented
+  and tested locally; no remote URL is fabricated.
 
 Historical CPU Gen4 also built and passed a two-seat, eight-decision comparison
 from its own archived weights on `experimental/gen4`. This is a load check only.
