@@ -1,0 +1,16 @@
+[package]
+name = "paisho-league"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+publish = false
+
+[dependencies]
+paisho-ai = { path = "../paisho-ai" }
+paisho-core = { path = "../paisho-core" }
+paisho-rating = { path = "../paisho-rating" }
+rayon.workspace = true
+sha2.workspace = true
+
+[lints]
+workspace = true

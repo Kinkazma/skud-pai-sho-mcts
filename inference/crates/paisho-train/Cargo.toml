@@ -1,0 +1,32 @@
+[package]
+name = "paisho-train"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+publish = false
+default-run = "paisho-train"
+
+[dependencies]
+paisho-ai = { path = "../paisho-ai" }
+paisho-core = { path = "../paisho-core" }
+paisho-model = { path = "../paisho-model" }
+paisho-mpsgraph-client = { path = "../paisho-mpsgraph-client" }
+paisho-rating = { path = "../paisho-rating" }
+paisho-replay = { path = "../paisho-replay" }
+paisho-platform = { path = "../paisho-platform" }
+rayon.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+flate2 = "1"
+
+[build-dependencies]
+sha2.workspace = true
+
+# sha2 0.10 uses its software backend on ARM unless this feature is enabled.
+# Runtime CPU detection retains the scalar fallback on unsupported processors.
+[target.'cfg(target_arch = "aarch64")'.dependencies]
+sha2 = { workspace = true, features = ["asm"] }
+
+[lints]
+workspace = true

@@ -1,0 +1,23 @@
+PAISHO-RECORD 1
+rules skud-pai-sho-gen5-v1
+start R5
+host-accents 0,1,1,2
+guest-accents 1,1,0,2
+actions
+plant W3 -8,0
+plant W3 8,0
+arrange -8,0 -5,0
+arrange 0,8 0,3
+arrange -5,0 -3,1
+arrange 8,0 8,3
+bonus-plant W3 -8,0
+arrange 0,-8 -3,-6
+bonus-plant W3 0,-8
+arrange 0,3 1,2
+arrange 0,-8 1,-6
+bonus-plant R5 8,0
+arrange -8,0 -7,2
+bonus-plant R5 -8,0
+arrange 8,0 4,1
+plant-special L 0,-8
+arrange 1,2 -1,0

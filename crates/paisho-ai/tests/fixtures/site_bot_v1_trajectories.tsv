@@ -1,0 +1,314 @@
+PAISHO-SITE-TRAJECTORIES	1
+# source-commit b849dbdabb1138ff0f6d609adf38b301c2f875ae
+[trajectory red3-reference]
+starting_flower	R3
+host_seed	0x484f5354
+guest_seed	0x4755455354
+decision_soft_limit	512
+termination	RING_GUEST
+turn	0	G	2	27	9bf0a542ae2b84b91946b00409329369949fed28d4b295f490a71ba723175ae4	1
+turn	1	H	2	21	3fd0da3330d4fae7eb768dc7e494a4f1964ce3882e0d4d5438e5c7d3062418b4	0
+turn	2	G	3	38	7ce7d92442b1ee4f12a4df172b145e8119d6d0151426eed748315bf5e3b38946	6
+turn	3	H	3	44	6e00f2f869e8f9d8b4baa002aec3ed81e48f1368dd751c7391b9c11d0d443a3a	37
+turn	4	G	4	61	bb76c6a13dbbce5ded746b55125804cc0e680ec62d0a24dc5daf8758c230343d	2
+turn	5	H	4	55	c39ef07830dfff3170a533b05dc55f6c5f709c95245efc27f092dbade0423594	0
+turn	6	G	5	64	4765565e404a2a660b613ec765d6f5dd18209b5cda73a39514336857a1b0fc47	63
+turn	7	H	5	85	a9f8c282a4e8595040bdf5d1b1b9b6377496a4a9eb06819eb585c62290c73777	39
+turn	9	G	6	72	95e9735d478dd8106780b9502c86b4821b78e5a69a7f06d5c1c4d98d8e90284f	16
+turn	11	H	6	102	fef57762770a6a851fc511ad5574c2cc73a11d7a10c3a90485595b7d0ef9a20c	0
+turn	12	G	7	71	7a37188d7481c2c4dffcdc0ac6a1d0230136bd79f847d4af0a4bec1eb6ea9413	0
+turn	13	H	7	104	a599e595a6a31e83f0ed69f10b063932780023977c7014e08a54e82826618226	18
+turn	15	G	8	100	5e7b2d3167c25826536198268ae94dafeb05d7b5208a972d50d19941e660ac19	60
+turn	16	H	8	115	abab78f7e4448c491aedc35aad1839f39b3f0f2216f40b96919ee9911f6bf546	12
+turn	17	G	9	131	837b6588ad2bdf6833b25585611803863641342bd47bf021b7b62f98263d3b56	0
+turn	18	H	9	112	f964f4ca27aaeec5fc371a6819b81d5372b9001e1599aa0ffdc4f149e9052dd6	15
+turn	20	G	10	139	f5603f5b16553a30c28d2c4e165abce9c6152e7cfd6c9b9781306d1938f0262f	24
+turn	21	H	10	136	4b2996e04f313eaa9f2b9b923229e182a4cdd5eea1eab1c7d393b756714c5767	115
+turn	22	G	11	143	4daccb1ed2b19da41d6b4773fad8b1602ec50eb41cf038652e05ae83c89678c0	0
+turn	23	H	11	143	32f265d0cb505a99313a556c1f7213b12f85f4a077ac6ab40f612a7c3cc62b71	0
+turn	24	G	12	160	8856703c9ef2669c59180d75136b59b2fd5cf95a3e0bda8af0b12a9a3e83d9e3	32
+turn	26	H	12	160	9369ea4e1b22ad5114a7837c6003ecebaff8eb7ca8ef831d519a9c4ec33cbf09	42
+turn	28	G	13	173	af2e9df900299f0c9e56783349bd0289172dc20dbe9a2a841be32f4934c48854	2
+turn	29	H	13	155	398bc3bf4f25a628293cebe282ec409f66aa9462d21629c6cc86d5663a5750db	0
+turn	30	G	14	175	f1fea842d227999e4e94e79b47eb0c5e3ecbe9463d4971b628f9eff7747e5ba8	157
+turn	32	H	14	169	62e0fd1e632bdeedf1f90372c1f79a59733be6c0116af3caa920ef6e681a987f	15
+turn	34	G	15	187	103393d86962e99054cf6e7ca618ada729266c2da08b94f7ff16b422bef55df7	0
+turn	35	H	15	166	c980a6845b8f8c0024c63e904dd992af8c566759dcfa7ae85166f6ffcf212546	23
+turn	36	G	16	200	aeda2937ea5a8bb77fbb288847c8d541d42f104ced0957ee238980d2478c9e24	43
+turn	38	H	16	172	59360fb575b4a02e6b7a0da5bc882e229513c1e5021e599b1d3a46730bb1a2e6	1
+turn	39	G	17	176	172c9b23a3f1c324aaec6a73be216121b954ea5964a6f530549da0a2d8054f90	9
+turn	41	H	17	191	702c5e3e17410a9f8cc91c0c43c7965b413d91a0dbb54cbfadfbd239f9995eb5	173
+turn	42	G	18	186	dfe9b83a43e4616551391e90705712228c5a1a27c964447dc15c14a373681feb	1
+turn	43	H	18	202	d58555bac2582e7820cea2eefddb3845a88d404e9e43ba833e87a5f6d1701ee9	0
+turn	44	G	19	201	4750e89af777bd842fbcb5a8c39f98c8dd8e577e753df82026c7336679d08094	108
+turn	46	H	19	227	700e0b4d02d103f527315eec0c1d13e77cfc1071c664b45d5b7dadbee0a078b6	21
+turn	47	G	20	206	72ca5efebdbdc7a4efbcfdb0297858a28678c2c69e62bca9a769d175e91e6882	0
+turn	48	H	20	231	7a21bef8deeb50c1db13dcbe13755e8b9543f20bc4d96e08b39f792cd2accae7	172
+turn	50	G	21	188	56b1671d8fca52e416ffdcf393a263e2cf09a6b7f68567375224782aeec2e64e	17
+turn	52	H	21	239	25ffa1a5c46f0ec0f2b396e754c92ba349cfbec20b17ac0ae48d439d1ba754d4	222
+turn	54	G	22	214	4e55fe0aa254b338057a54dd51c437046be99682ca1ba5a17af7bb19abbd601c	151
+turn	56	H	22	244	46b0cbae27dfa2d2bd3fb776f283ee6e9a2a8f3fadde5d38c6daa4ee3388e3e5	191
+turn	57	G	23	202	4c7ab6d298631acb61e7591aa771f1f56f898d846dda48be310d16b54fcd12d4	2
+turn	58	H	23	236	1c5559236cdf6efb877144f8747b9f43644417257b9f0ff2331b1f9045c95c36	146
+turn	60	G	24	200	dcc3f9fc905247aa1a49f2861c66861dbc61bb0588440999a2994b35d44450f1	0
+turn	61	H	24	231	5a62dae0d40d8a0518f596de6a9227d2191ba4dda0771b8d26869de0480e8be5	9
+turn	62	G	25	211	51cc7c31f169c523f1b607de84fc77de4a489ae6a9fb05bfc2656498f41a1d59	138
+turn	63	H	25	220	62739693d8121ea604e25c31a0f770674c2de1c680467a94d073cfae82c447bc	148
+turn	65	G	26	229	85464cce655374a89e982b2dc137f7cb9a7993d4f188170eed3a3d0a1515155b	187
+turn	67	H	26	229	458ff648f790ec8dacdaeb4bb686898dd98b12f4010147dcc526d47fa9b30a22	108
+turn	68	G	27	210	a554938063f30a4c816e8bc76deaf34fb798dbf85a857cca84d554a593631cc2	38
+turn	70	H	27	235	ee9f3d4f3d45fee5dc1df19d550d4ac3b6bab853b970524a39d0b3938f564095	35
+turn	71	G	28	205	bb588a385a65e0489cd541b730d763ca0a2a165ad49a5bf90f6266567ffa4436	151
+turn	72	H	28	250	f7948300176936148d7925df8f9c78e8861eedca4bfa7f07986e40ee9044b659	70
+turn	73	G	29	191	4738bf4bea6052d213f6d7c7af17979d8110d9b4db26ff1e9f0748edb5a2172f	25
+turn	74	H	29	257	cdb8a7127d10b033da735d12c4c4a4e98d079a41ea62753c2fae235a46b18156	0
+turn	75	G	30	185	fac8fb81c0b1c00a8b3c407a4f5b3b2f48fd006dd8720dbf0d99bcc2ab7d3dd1	20
+turn	77	H	30	256	94e917aadf8dc1346f8699a3b3eff1d8e2e082e83f0181806edc044bb9accf5e	3
+turn	79	G	31	193	a3646cd8b65a7987af8a4732c1c95468798e096e87ca23860038865a4cb6d6b3	1
+turn	80	H	31	230	aa1dfa915851e5865f83566480c13af74173d53818c16d18536423f17e90151c	57
+turn	81	G	32	194	3fb445fe2a4305189cb8b440563fc349fafd4122052f0903de91192fd73f1ac7	12
+turn	82	H	32	250	5c7f1218ab7a38cdd8ce33c652ff978436607c484c0f8ada870923ab864ed3c9	23
+turn	84	G	33	211	a9f61f861ea05370e9140e57317ab8263c643f28822cc7da93df0384a6dd012a	0
+turn	85	H	33	239	f19c1a45561eddceea4dde520b20cbcf92b29f9f492191d1918fed15c1a9547d	34
+turn	86	G	34	193	b6bafb3272369d1929745a06726567aad6db54451da9fe6916d2b141e524165b	14
+turn	88	H	34	241	dbead9bbd80a6e5a38b9a121d6648ff3fe8c3e3aae9aca8a0ebb9670e6836488	65
+turn	89	G	35	227	d4810807ba65406ab48d050cb9d6eb237956c780fedbdf1ac83980719fff5ead	22
+turn	90	H	35	248	5e7194c8fc4b8dd1713af7f858002b6c65bd5d4592040cb533f016b5e1aac3d8	44
+turn	91	G	36	223	d6dd4e3f7a5b9d6198e466f3cdea4a2262861c915fc4b998e1fcfe1a039ffd81	166
+turn	93	H	36	238	3f74c4f87be5df16361eb094d5e8b6e03a6fa3a2eb97e274aa0940959b5568df	66
+turn	94	G	37	250	51d1c660456f8af796fb45c7d8c3cbfdbc34cd6042f0970e1e443d297feacc68	219
+action	plant R4 8,0
+action	plant R4 -8,0
+action	arrange 8,0 5,1
+action	arrange -8,0 -5,-1
+action	plant W3 -8,0
+action	plant R5 8,0
+action	arrange 0,-8 3,-8
+action	arrange 8,0 6,-1
+action	skip-bonus
+action	arrange 5,1 3,3
+action	skip-bonus
+action	plant W3 8,0
+action	plant R5 0,-8
+action	arrange 8,0 6,1
+action	skip-bonus
+action	arrange 0,-8 -1,-4
+action	arrange 0,8 -3,8
+action	plant W4 0,8
+action	arrange -3,8 -5,7
+action	bonus-plant W5 0,-8
+action	arrange 0,8 -1,5
+action	arrange 0,-8 1,-5
+action	plant W5 0,8
+action	plant W4 8,0
+action	arrange 0,8 2,5
+action	skip-bonus
+action	arrange 8,0 6,2
+action	skip-bonus
+action	plant R3 0,-8
+action	plant R3 0,8
+action	arrange 0,-8 2,-7
+action	skip-bonus
+action	arrange 0,8 1,8
+action	skip-bonus
+action	plant R4 0,8
+action	arrange 1,8 1,5
+action	arrange -1,5 2,6
+action	skip-bonus
+action	plant R4 0,-8
+action	arrange 0,8 -1,8
+action	skip-bonus
+action	arrange 0,-8 -1,-5
+action	plant R5 8,0
+action	plant R5 0,8
+action	arrange 8,0 6,3
+action	skip-bonus
+action	arrange 0,8 -1,7
+action	plant W3 0,8
+action	arrange -1,-5 -1,-3
+action	bonus-plant W4 0,-8
+action	arrange 0,8 -1,6
+action	skip-bonus
+action	arrange 0,-8 0,-5
+action	skip-bonus
+action	arrange -1,-4 -1,-1
+action	skip-bonus
+action	arrange 0,-5 -4,-5
+action	plant W4 0,-8
+action	arrange 6,-1 6,-3
+action	bonus-plant R5 0,8
+action	plant W5 8,0
+action	arrange 0,8 0,6
+action	arrange 8,0 6,-3
+action	arrange -1,-3 0,-1
+action	bonus-plant R3 8,0
+action	arrange 6,-3 5,-7
+action	skip-bonus
+action	arrange 6,1 6,-1
+action	arrange 2,6 5,5
+action	skip-bonus
+action	arrange -1,7 2,5
+action	arrange 2,-7 -1,-7
+action	arrange 2,5 -1,7
+action	arrange -1,6 -1,4
+action	plant W3 0,8
+action	arrange 5,5 5,4
+action	skip-bonus
+action	arrange 0,8 2,7
+action	skip-bonus
+action	plant R4 0,8
+action	arrange 0,6 0,4
+action	arrange 0,8 0,7
+action	arrange -1,7 1,7
+action	skip-bonus
+action	plant R3 0,8
+action	arrange 1,7 2,4
+action	arrange 0,8 2,7
+action	skip-bonus
+action	arrange 2,4 -1,6
+action	arrange 0,7 -3,7
+action	arrange -1,6 2,4
+action	arrange -1,-7 -3,-7
+action	skip-bonus
+action	arrange 2,4 -1,6
+action	arrange 5,-7 2,-7
+[trajectory white4-independent]
+starting_flower	W4
+host_seed	0x1
+guest_seed	0x2a
+decision_soft_limit	512
+termination	RING_HOST
+turn	0	G	2	35	803f06ce534802c504713c609a6a3722513ea38db927fd65bfbffda3ebe506d4	14
+turn	1	H	2	41	53dc8627bbadd4ad7f1daa2781e3864552c8dda8192f364e6bdc969c7aa99410	38
+turn	2	G	3	58	8b7ea5f0922916aa9c55231a14d0580ea94cf55ce00dceba0ec5981b19194d0b	0
+turn	3	H	3	52	8e59bf9cb3888071aacc99ac989cb08ff913f7ad3b04268952ba722d250f60d3	1
+turn	4	G	4	61	54ee73c7380f2d2d9bd844f2e0e7e055352ae68f199684e65749fc06c9f3e1da	0
+turn	5	H	4	55	74e2141667122ed23676514743c7945bf49755f0d1d7c85de2f3d7979be175dc	0
+turn	6	G	5	72	ed57768a008556b5f89365e803154cd5af21eb9fa116c223f6d3d22872f54258	31
+turn	7	H	5	69	4e20bed962c448cedae917b39b958a94d58ad8fb5d8a54ac69fc615905a5f1d8	0
+turn	8	G	6	80	5a41fa2b5637223ab94cf15bfc107d27108d26c8f5342b55ac66fbd248888b69	57
+turn	9	H	6	94	4bc4e2f0c153e24ebef6cf83ce05ce79933ba7fb73b4975b13ed4d89bcf3a44a	53
+turn	10	G	7	88	4c316a6022d0f398443bc0a92995bce70e9e7df5f76e3476f1eb308c3c1ea4a4	50
+turn	11	H	7	74	25cd24a73bd68ee8afa17328fd7718ff3fff5da4e6703f54204a34ea7cb99f94	68
+turn	13	G	8	86	9b578383feecd557e74615d7a53c8b40d735dd9e9c46a65dbd21e7ec311a62e2	0
+turn	14	H	8	73	f960e4be7eb9798a2e7f5ed92498ef7bc35c604107f50430f675cdee3e29df25	0
+turn	15	G	9	103	6357afcc420b3f6f0eb5a58c82ce031da8e3ec80602bda50e65485581bb33bb3	23
+turn	17	H	9	89	c415e3cbb089a78965316460181eb9c5d62ad88cd2685fc99a735d8cd42338dc	75
+turn	19	G	10	121	3ba7fbf3bc2cf9e30a025d3f6c0421c41b3409329308cd54adf8fcacce5de897	15
+turn	20	H	10	103	a36201c504e5da751e76507a22866464bcdef4978c190c35d9bca5c919d8a42a	0
+turn	21	G	11	118	882ba31fbad30880624f408923d247eef5613e76f36f00cc8281c47f30658a87	23
+turn	22	H	11	123	18606a3d042b16b4ed0caac36788ea5588fcd5b116ef681da38843ac392cbd1f	21
+turn	24	G	12	132	f11216dbc8436cd40d3875fd69d78953ae579e987abd26d6e8ad029125e9517a	0
+turn	25	H	12	123	ab3023ea9c693d62d6330d066dd799462788249903de106f202cb154b6047a28	0
+turn	26	G	13	130	fe894f04b9bf04b6c05eb6ff0b44eb06e86cf320b28fa5c88d1c4d97deb8b74d	13
+turn	28	H	13	135	d0368bbd4e405d319449c71f51647979965e237b907e1da912d9b82269322dee	1
+turn	29	G	14	124	2ef47d44391b799c921e6325c1e157c5994f54f4fdc718937a7406538a432662	0
+turn	30	H	14	140	6644a5d804e1c3dec3c4aaff928151ecf67a49a1046a3ddc78bfa7e3fddbb417	127
+turn	31	G	15	145	24f86a7e5bbbc1eb1813f33cea74c0e3774ea590142fca2670236f76f0f6649f	9
+turn	33	H	15	152	cebc1c4454ea34b736c49bea63e03a6dbe269f2aadbbdac269a5258cc19c3d70	0
+turn	34	G	16	137	050ea05567cf023dfb86035a98404d89f5869b18591b628c385c1ffb333d9638	0
+turn	35	H	16	155	b830bb96dfe7acbb1ade02f0674839cf38068d183bbe71bf254e6f6bdb07e054	13
+turn	37	G	17	140	e00b15c1e8b8f0aaa78e205e92120764867ad9919df2fbe7bbf415e836ef164b	130
+turn	38	H	17	172	755342c3a67727855ffea35cb94b4b0a1cb9baf9a1d26b7540e064fbf5c239ab	36
+turn	39	G	18	163	840ffa2f4279f8d49d5a374d391cf15e17e5123defb98fff3a87125cc88c9739	31
+turn	41	H	18	151	85dea84cb43dacb210440cd85036622edc44afda15530651c129c8376721f6dd	0
+turn	42	G	19	166	a8cae9d19a9b6a1530b2b9c458162cdb22a8d94efb7ab98ed41fb1f5a9ede1a5	9
+turn	44	H	19	148	45cf14a36dcf5519ce58f987e58d2de52e5b9fabf763e580810680954e2f5a79	0
+turn	45	G	20	165	240306237b077f8df1a951e38e3a7edf24e86cf04642bfdd77a1323bcaf3839a	146
+turn	46	H	20	159	5142d3e00cb2a38afad68fb7926d3d5f08281f2fa1a49bd3ae44c8c58d4aac89	9
+turn	48	G	21	158	c22ad4146c8392f9cfe37c69da6713e1029d3469533a44452f158d9ea4ede110	107
+turn	50	H	21	198	e1f5e41f3960cb3894e43f69b0bec6b72db075445e08ce71d8f54f1fde09aab8	144
+turn	52	G	22	181	43675991c088ece664bf34b285d28a6c2040cb56872956ee8f73add86041dfa5	16
+turn	54	H	22	187	9d15edd3f552d2a5ddcb9aa5fa606910c62d2c0854c16f88051b9db5f4e5b941	0
+turn	55	G	23	167	c82063ce5116cde1cd2232f5efc90003c08bc5fa300ac2bda5a33983e24f0d18	86
+turn	56	H	23	196	bd1b0782741e80e634ff97747d326c8d9c1e8b5da7c4da0bacd7cf3050a3825f	3
+turn	58	G	24	190	fdeec16edc940fbbb56996bd345a1db7d762e253f8f6f9a9941f294144594195	71
+turn	59	H	24	199	f23edde926e012f492be842856e9daa33dc7d3017dddcb86577c112315f83b37	0
+turn	60	G	25	160	b7c3be8eb4c9dd516a5c622a6b7f96fc248ee4f040e961a9a9183ac08649449d	84
+turn	61	H	25	189	acb4c5fe65d25475abbc897ca83a5c0cd7a7671b5161481f1ddcf0fcfaaebb45	2
+turn	63	G	26	188	faea86c298a61809d9f8643faa1e23f4918f423821f45a9e61f443e487a7e012	69
+turn	64	H	26	198	67038df08607d65f642f9fb4589ba80a44b0b4b389634d6b49150c495a6b24bb	89
+turn	65	G	27	171	3f6829ae219c132d9855cf9da16f32ca5a38be72b9e0699c74548672a81eff5c	0
+turn	66	H	27	190	002fe2a1e27bb828a7e6412fa75fdfabc1814d8f358e82cd03b97982aab09c33	95
+turn	67	G	28	168	2db91ad74a26fb91a2a95cc4cc9f82b023e21f0a7462cba8bc1c73768679cc63	6
+turn	68	H	28	188	113f28dc9d4da564f733368db1a6c99f3f8488560633ce521008eca58890fa70	0
+turn	69	G	29	169	16b689ca9904775d4b78ab1adecde3d5ad5b847a8b989948235c726542baeee1	6
+turn	71	H	29	187	2af62687426d016aa121a3733160412800ec59dcceafa972d8e25101ca072165	10
+turn	73	G	30	184	afbe3e98d4d84fe8a954aca28b28ec02b335b9864127b732a1d1aa4b3e90379d	91
+turn	75	H	30	202	e9cc67f50351c5ddc2eb74d1fae5917e35dc8c9525c5fb8c9e8c09c2465e72e4	40
+action	arrange 0,-8 1,-5
+action	arrange 0,8 -1,5
+action	plant R3 0,8
+action	plant R3 8,0
+action	plant R4 -8,0
+action	plant R4 0,-8
+action	arrange -8,0 -5,-1
+action	plant R5 -8,0
+action	arrange 1,-5 3,-4
+action	arrange -8,0 -4,-1
+action	arrange 3,-4 2,-1
+action	arrange 0,-8 -4,-8
+action	skip-bonus
+action	plant R5 -8,0
+action	plant W3 0,-8
+action	arrange -8,0 -5,2
+action	skip-bonus
+action	arrange 0,-8 -1,-6
+action	skip-bonus
+action	arrange 0,8 1,8
+action	plant W5 0,8
+action	arrange 1,8 1,5
+action	arrange 0,8 -1,7
+action	skip-bonus
+action	plant W3 0,8
+action	plant R3 -8,0
+action	arrange 0,8 2,7
+action	skip-bonus
+action	plant R4 0,-8
+action	plant W5 0,8
+action	arrange 0,-8 1,-6
+action	arrange 0,8 1,8
+action	skip-bonus
+action	plant R5 0,8
+action	plant R3 0,-8
+action	arrange 0,8 1,4
+action	skip-bonus
+action	arrange 0,-8 -1,-6
+action	arrange -1,5 1,7
+action	arrange 1,8 -1,5
+action	bonus-plant R4 0,8
+action	plant W3 0,-8
+action	arrange 0,8 1,7
+action	skip-bonus
+action	plant W4 0,8
+action	arrange -1,-6 -1,-3
+action	arrange 0,8 1,7
+action	skip-bonus
+action	arrange -5,-1 -5,-3
+action	bonus-plant W5 0,8
+action	arrange -4,-1 -4,-6
+action	skip-bonus
+action	arrange 0,8 1,6
+action	skip-bonus
+action	plant W5 0,8
+action	arrange -5,2 -5,-1
+action	arrange 0,8 1,8
+action	skip-bonus
+action	arrange -5,-1 -5,4
+action	plant R3 0,8
+action	arrange -5,4 -5,-1
+action	arrange 0,8 -1,8
+action	skip-bonus
+action	arrange -5,-1 -5,4
+action	arrange -8,0 -8,-1
+action	plant R5 0,8
+action	arrange -8,-1 -5,-1
+action	arrange 0,8 1,8
+action	plant R4 0,8
+action	arrange 1,8 2,8
+action	bonus-plant R4 -8,0
+action	arrange 0,8 0,4
+action	skip-bonus
+action	arrange -8,0 -8,4
+action	skip-bonus
+action	arrange 0,4 -4,4

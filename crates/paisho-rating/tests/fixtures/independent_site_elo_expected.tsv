@@ -1,0 +1,40 @@
+PAISHO-SITE-ELO-INDEPENDENT-REFERENCE	1
+update	0	0	alpha	beta	1000	1000	16	1016	984
+update	1	0	beta	alpha	984	1016	-15	969	1031
+update	2	1	alpha	beta	1031	969	-19	1012	988
+update	3	1	beta	alpha	988	1012	17	1005	995
+update	4	2	alpha	beta	995	1005	16	1011	989
+update	5	2	beta	alpha	989	1011	17	1006	994
+update	6	3	alpha	beta	994	1006	-15	979	1021
+update	7	3	beta	alpha	1021	979	-18	1003	997
+update	8	4	alpha	beta	997	1003	0	997	1003
+update	9	4	beta	alpha	1003	997	0	1003	997
+update	10	5	alpha	beta	997	1003	16	1013	987
+update	11	5	beta	alpha	987	1013	1	988	1012
+update	12	6	beta	gamma	988	1000	17	1005	983
+update	13	6	gamma	beta	983	1005	-15	968	1020
+update	14	7	beta	gamma	1020	968	-18	1002	986
+update	15	7	gamma	beta	986	1002	17	1003	985
+update	16	8	beta	gamma	985	1003	17	1002	986
+update	17	8	gamma	beta	986	1002	17	1003	985
+update	18	9	beta	gamma	985	1003	-15	970	1018
+update	19	9	gamma	beta	1018	970	-18	1000	988
+update	20	10	beta	gamma	988	1000	1	989	999
+update	21	10	gamma	beta	999	989	0	999	989
+update	22	11	beta	gamma	989	999	0	989	999
+update	23	11	gamma	beta	999	989	-16	983	1005
+update	24	12	alpha	gamma	1012	983	15	1027	968
+update	25	12	gamma	alpha	968	1027	-13	955	1040
+update	26	13	alpha	gamma	1040	955	-20	1020	975
+update	27	13	gamma	alpha	975	1020	18	993	1002
+update	28	14	alpha	gamma	1002	993	16	1018	977
+update	29	14	gamma	alpha	977	1018	18	995	1000
+update	30	15	alpha	gamma	1000	995	-16	984	1011
+update	31	15	gamma	alpha	1011	984	-17	994	1001
+update	32	16	alpha	gamma	1001	994	0	1001	994
+update	33	16	gamma	alpha	994	1001	0	994	1001
+update	34	17	alpha	gamma	1001	994	16	1017	978
+update	35	17	gamma	alpha	978	1017	2	980	1015
+rating	alpha	1015
+rating	beta	1005
+rating	gamma	980

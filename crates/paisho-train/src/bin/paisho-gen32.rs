@@ -1,0 +1,20 @@
+use paisho_train::gen32::*;
+use std::{env, fs, path::Path};
+fn main() -> Result<()> {
+    let a: Vec<String> = env::args().collect();
+    match a.get(1).map(String::as_str){
+        Some("inspect") if a.len()==3=>{let a=Artifact::load(Path::new(&a[2]))?;println!("{}",serde_json::json!({"generation":a.generation,"schema":a.schema,"updates":a.updates,"value_features":if a.value128_extra.is_some(){128}else{64},"memory_scope":a.memory_scope,"value_residual_parameters":a.value_residual.as_ref().map_or(0,Vec::len)}));Ok(())},
+        Some("upgrade-value-residual") if a.len()==5=>upgrade_value_residual(Path::new(&a[2]),Path::new(&a[3]),a[4].parse()?),
+        Some("upgrade") if a.len()==7=>upgrade(Path::new(&a[2]),Path::new(&a[3]),Path::new(&a[4]),&a[5],a[6].parse()?),
+        Some("compare-panel") if a.len()==9=>compare_panel(Path::new(&a[2]),Path::new(&a[3]),Path::new(&a[4]),a[5].parse()?,a[6].parse()?,a[7].parse()?,Path::new(&a[8])),
+        Some("compare-learning") if a.len()==8=>compare_learning(Path::new(&a[2]),Path::new(&a[3]),Path::new(&a[4]),a[5].parse()?,a[6].parse()?,a[7].parse()?),
+        Some("compare-tactics") if a.len()==9=>compare_tactics(Path::new(&a[2]),Path::new(&a[3]),Path::new(&a[4]),a[5].parse()?,a[6].parse()?,a[7].parse()?,a[8].parse()?),
+        Some("defaults") if a.len()==2=>{println!("{}",serde_json::to_string(&Options::default())?);Ok(())},
+        Some("bootstrap") if a.len()>=4=>bootstrap(Path::new(&a[2]),Path::new(&a[3]),a.get(4).map(Path::new)),
+        Some("human-fit") if a.len()==5=>human_fit(Path::new(&a[2]),Path::new(&a[3]),Path::new(&a[4])),
+        Some("run") if a.len()==3=>run(serde_json::from_slice(&fs::read(&a[2])?)?),
+        Some("compare") if a.len()==8=>compare_seed(Path::new(&a[2]),Path::new(&a[3]),Path::new(&a[4]),a[5].parse()?,a[6].parse()?,a[7].parse()?),
+        Some("compare") if a.len()==7=>compare(Path::new(&a[2]),Path::new(&a[3]),Path::new(&a[4]),a[5].parse()?,a[6].parse()?),
+        _=>Err("usage: paisho-gen32 upgrade-value-residual PARENT OUTPUT SEED | upgrade PARENT OUTPUT MEMORY_DIR root|bonus-nodes|all-nodes true|false | bootstrap PARENT OUTPUT [MEMORY_DIR] | run CONFIG | compare MODEL GEN31 OUT BUDGET PAIRS [SEED] | compare-learning MODEL GEN32 OUT BUDGET PAIRS SEED | compare-panel MODEL REFERENCE OUT BUDGET SEED REFERENCE_SOLVER PANEL".into()),
+    }
+}

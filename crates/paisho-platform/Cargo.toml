@@ -1,0 +1,10 @@
+[package]
+name = "paisho-platform"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+publish = false
+
+# The only OS FFI boundary. Game, search and training crates retain forbid(unsafe).
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"

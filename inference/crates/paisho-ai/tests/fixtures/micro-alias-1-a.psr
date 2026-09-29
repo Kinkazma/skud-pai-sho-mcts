@@ -1,0 +1,77 @@
+PAISHO-RECORD 1
+rules skud-pai-sho-gen5-v1
+start R3
+host-accents 1,1,0,2
+guest-accents 0,2,0,2
+actions
+plant W5 -8,0
+arrange 0,8 -1,6
+plant R3 0,8
+arrange -1,6 -2,7
+arrange 0,8 0,7
+plant W5 0,8
+arrange 0,-8 1,-6
+arrange -2,7 -3,7
+plant R3 8,0
+arrange 0,8 1,6
+plant W5 0,8
+plant W3 0,-8
+arrange -8,0 -3,0
+arrange 0,-8 1,-6
+arrange -3,0 -5,0
+plant R3 0,-8
+arrange 0,7 -2,6
+arrange 1,-6 2,-7
+arrange -5,0 -2,2
+skip-bonus
+plant W4 -8,0
+arrange 8,0 7,2
+skip-bonus
+arrange 0,-8 1,-6
+skip-bonus
+plant W3 0,-8
+plant R5 8,0
+arrange 0,-8 1,-6
+plant W4 0,-8
+arrange -2,2 1,0
+arrange -8,0 -7,1
+plant R4 -8,0
+arrange 0,-8 1,-5
+plant R5 0,-8
+arrange -3,7 -4,5
+arrange 0,8 -3,6
+skip-bonus
+arrange 1,6 6,6
+plant R4 0,8
+arrange 2,-7 4,-8
+arrange 0,8 2,6
+skip-bonus
+arrange 8,0 4,1
+bonus-plant W4 0,8
+arrange -8,0 -7,1
+arrange 0,8 2,6
+bonus-plant W3 8,0
+arrange 0,-8 -2,-6
+bonus-plant R4 0,8
+arrange 8,0 6,1
+bonus-plant R3 0,-8
+arrange 0,8 2,6
+bonus-plant W4 8,0
+arrange 0,-8 1,-6
+arrange 8,0 4,0
+bonus-plant W3 0,-8
+arrange 6,6 2,5
+bonus-plant R4 8,0
+arrange 0,-8 1,-6
+bonus-plant R5 0,8
+arrange 8,0 4,0
+bonus-plant W5 0,-8
+arrange 0,8 2,5
+bonus-plant W4 8,0
+arrange 0,-8 -4,-7
+bonus-plant W5 0,8
+arrange 8,0 4,0
+bonus-plant R5 0,-8
+arrange 0,8 2,5
+bonus-plant R4 8,0
+arrange 1,0 2,-3

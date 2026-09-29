@@ -1,0 +1,22 @@
+PAISHO-RECORD 1
+rules skud-pai-sho-2022-03-14
+start W4
+host-accents 1,1,1,1
+guest-accents 1,1,1,1
+actions
+arrange 0,-8 1,-5
+arrange 0,8 4,8
+plant W3 0,8
+plant R4 0,-8
+arrange 0,8 1,7
+bonus-plant W4 0,8
+arrange 0,-8 0,-6
+arrange 0,8 -3,7
+bonus-plant W3 0,8
+plant R4 8,0
+arrange 0,8 -3,8
+bonus-plant W3 0,-8
+arrange 8,0 6,-1
+arrange 0,-8 -1,-6
+plant W3 0,8
+arrange -1,-6 -3,-5

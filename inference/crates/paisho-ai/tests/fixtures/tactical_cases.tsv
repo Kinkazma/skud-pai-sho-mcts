@@ -1,0 +1,9 @@
+case_id	record	prefix	kind	attacker	horizon	source_game
+official-immediate-ring	site_bot_v1_ring_finish.psr	10	attack	Guest	1	official-oracle-ring-fixture
+official-defend-immediate	site_bot_v1_ring_finish.psr	9	defend	Guest	1	official-oracle-ring-fixture
+guest-wheel-ring	tactical_guest_wheel_finish.psr	16	attack	Guest	2	league-game-34354
+host-defend-wheel	tactical_guest_wheel_finish.psr	15	defend	Guest	2	league-game-34354
+host-wheel-ring	tactical_host_wheel_finish.psr	14	attack	Host	2	league-game-34355
+guest-defend-wheel	tactical_host_wheel_finish.psr	13	defend	Host	2	league-game-34355
+guest-forced-three	tactical_guest_forced_three.psr	13	attack	Guest	3	league-game-34256
+host-forced-three	tactical_host_forced_three.psr	15	attack	Host	3	league-game-34265

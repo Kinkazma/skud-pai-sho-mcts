@@ -1,0 +1,18 @@
+[package]
+name = "paisho-ai"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+publish = false
+
+[dependencies]
+serde.workspace = true
+paisho-core = { path = "../paisho-core" }
+paisho-model = { path = "../paisho-model" }
+paisho-mpsgraph-client = { path = "../paisho-mpsgraph-client" }
+rayon.workspace = true
+rayon-core.workspace = true
+sha2.workspace = true
+
+[lints]
+workspace = true
