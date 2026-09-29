@@ -3,6 +3,7 @@
 import argparse,json,os,shutil,subprocess,sys
 from pathlib import Path
 from scripts.prepare_models import ROOT,prepare,sha
+from scripts.assets import require_groups
 
 def run(args):subprocess.run([str(a) for a in args],cwd=ROOT,check=True)
 def main():
@@ -15,6 +16,7 @@ def main():
  if a.command=='doctor':
   print(json.dumps({'python':sys.version.split()[0],'cargo':shutil.which('cargo'),'platform':sys.platform,'cpus':os.cpu_count(),'generation':g,'trainer':trainer.is_file(),'inference':suite.is_file(),'assetsPresent':all((ROOT/k).exists() for k in json.loads((ROOT/'assets-manifest.json').read_text())['files'])},indent=2));return
  if a.command=='setup':
+  require_groups(['core-memory'])
   if not shutil.which('cargo'):raise SystemExit('Install Rust through rustup first; see README prerequisites.')
   run(['cargo','build','--release','--locked','-p','paisho-train','--bin','paisho-gen32','--bin','paisho-compact']);run(['cargo','build','--manifest-path','inference/Cargo.toml','--release','--locked','-p','paisho-train','--bin','paisho-gen3-suite']);prepare();return
  if a.command=='dashboard':run([sys.executable,ROOT/'scripts/dashboard.py','--port',a.port]);return
@@ -26,6 +28,7 @@ def main():
   for name in ['progress.json','live.json','final.json']:
    if (output/name).exists():print((output/name).read_text())
   return
+ if a.command=='train' and a.replay:require_groups(['gen35-replay'])
  models=prepare()
  if a.command=='prepare':return
  if a.command=='serve':run([suite,'serve',models/'opponents.json',g,a.budget,a.seed,'gen3']);return
