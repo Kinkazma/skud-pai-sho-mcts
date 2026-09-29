@@ -21,7 +21,7 @@ memories and training tools; it does not build a new website or WordPress ZIP.
 - The Gen3.5 replay index: 65,536 FIFO positions and 128,718 corrections, backed
   by 46,773 relocalized source files in the optional data pack.
 - 1,375 normalized human game records and the derived training dataset, staged
-  locally pending confirmation of redistribution terms before public upload.
+  locally with redistribution confirmed by the project maintainer.
 - Optional Apple MPSGraph, Metal and Core ML research code, with distinct schemas.
 - English setup, command-line and local training-management entry points.
 
@@ -37,14 +37,17 @@ Apple research requires macOS and Xcode/Swift as documented separately. Gen3.5
 runs on CPU; installing an Apple backend does not accelerate it automatically.
 
 ```sh
+python3 scripts/assets.py verify --profile gen3
 python3 manage.py doctor
 python3 manage.py setup
 python3 manage.py play --generation 3.5 --opponent 3.1 --budget 32 --output runs/example.psr
 python3 manage.py serve --generation 3.5 --budget 32
 ```
 
-Large assets must be installed from the matching release data pack into this
-checkout before `setup`. The current local preparation already contains them.
+**Install every part of the [`core-memory` resource group](data/ASSETS.md) before
+`setup`. Git clone and the automatic GitHub source ZIP do not include large data.**
+For historical Gen3.5 replay, also install `gen35-replay`; for the human corpus,
+install `human`. Gen5 and Apple have separate groups; see the generation table. The current local preparation already contains them.
 No remote release URL is invented while publication is pending. `prepare` verifies
 asset hashes and produces ignored, machine-local copies under `portable-models`.
 Run it again after moving the checkout. Published models retain portable paths.

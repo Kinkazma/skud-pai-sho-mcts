@@ -2,6 +2,10 @@
 """Verify local release assets and create idempotent machine-local model paths."""
 import hashlib,json,sys
 from pathlib import Path
+if __package__:
+ from .assets import require_groups
+else:
+ from assets import require_groups
 ROOT=Path(__file__).resolve().parents[1]
 def sha(path):
  h=hashlib.sha256()
@@ -15,6 +19,7 @@ def relocate(value):
  return value
 
 def prepare():
+ require_groups(['core-memory'])
  manifest=json.loads((ROOT/'assets-manifest.json').read_text())
  for name,entry in manifest['files'].items():
   path=ROOT/name

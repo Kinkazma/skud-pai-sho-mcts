@@ -7,9 +7,10 @@ incomplete. Normalized records contain game actions without player account names
 Derived features preserve split identities and held-out flags.
 
 The code/weights MIT license does not grant rights in third-party source datasets.
-Redistribution terms for the human corpus remain to be confirmed before public
-upload. The local package includes it for preparation and testing; do not infer
-permission merely from its prior availability online. No raw account profiles,
+The project maintainer confirmed on 2026-09-29 that the human corpus and its
+derived training data may be distributed for community reuse. Keep their source
+provenance; this confirmation does not relicense third-party material as MIT.
+No raw account profiles,
 ratings, avatars or website assets are included.
 
 - `human/records/*.psr`: normalized legal records.
@@ -22,3 +23,7 @@ ratings, avatars or website assets are included.
 Large `.bin` and `assets/` data are not Git objects. They will accompany a matching
 release with verified checksums; until then they are present in this local bundle.
 The original metadata and machine paths are not needed to compute or train.
+
+Install all parts of the groups listed in [the resource guide](ASSETS.md).
+[The release asset catalog](release-assets.json) records archive names, sizes,
+SHA-256 hashes and generation requirements. Large resources are not in a clone.
