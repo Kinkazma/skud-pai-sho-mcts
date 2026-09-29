@@ -42,8 +42,8 @@ one requested budget for a new experiment. Gen3.3 still has the 3.2 wire label.
 
 The replay pack keeps FIFO order, correction indices and draw cursors. Only private
 JSON string values are changed; numerical tokens in compressed source files are
-preserved byte-for-byte. This is checked during extraction. Initial publication
-of the data pack still requires a rights review for third-party human game data.
+preserved byte-for-byte. This is checked during extraction. The project maintainer
+has confirmed distribution of the human corpus and derived data for community reuse.
 
 ## Model installation and evidence
 
@@ -59,3 +59,12 @@ Gen3.1 uses the historical compact trainer. It has no cooperative pause request;
 use a short explicit `--seconds` bound. The dashboard starts at Gen3.2.
 Gen3.2–3.5 continuation reads `checkpoint.json`, the durable model/replay pair,
 not the transient progress display.
+
+## Required release resources
+
+Install all parts before starting: `core-memory` for the portable Gen3 suite;
+add `gen35-replay` only when using the historical Gen3.5 `--replay` option. The
+`human` group supplies the separate human records and derived features. Run
+`python3 scripts/assets.py verify --profile gen35-replay` for a full historical
+Gen3.5 resource check. Missing groups are rejected before native training.
+See [the complete resource table](../data/ASSETS.md), including Gen5 and Apple.
