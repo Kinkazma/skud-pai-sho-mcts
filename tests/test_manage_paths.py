@@ -10,7 +10,7 @@ import manage
 class LauncherOutputs(unittest.TestCase):
     def test_distinct_generation_names_keep_distinct_config_files(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            root = Path(directory).resolve()
             (root/'configs').mkdir()
             (root/'configs/gen3.5-historical.json').write_text('{"historical_pool": []}')
             models = root/'portable-models'

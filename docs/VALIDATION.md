@@ -66,3 +66,32 @@ banks each have one. Separate human and Apple groups remain optional by use.
 Six packaging tests cover exact size bounds with long/Unicode paths, deterministic
 metadata, tampering, missing parts, oversize members and overwrite refusal.
 See [the resource catalog](../data/release-assets.json). No assets were uploaded.
+
+## Fresh installation check — 29 September 2026
+
+The repository was cloned into a new temporary directory, without source-tree
+assets or prepared models. All generated artifacts remained in the private test
+copy. No website, original campaign, frozen model or remote repository changed.
+
+- The verified installer restored the common banks from TAR, and `manage.py setup`
+  compiled both Rust workspaces. A full Gen3.5/Gen3.1 MCTS-8 sample ended legally
+  after 26 decisions. This single game is an execution check, not a strength test.
+- Short Gen3.1, 3.2, 3.3, 3.4 and 3.5 training segments all completed without errors.
+- Gen3.5 learned 635 fresh positions, then 637 after restoring the exact durable
+  model/replay pair; final reserve 1,272. Updates 26,390,182 → 26,393,357 → 26,396,542.
+- Gen3.1 resumed the exact final-model hash and 992 replay examples; 4,960 initial
+  updates, then 4,800 more. This is weight/replay continuation, not a clock replay.
+- Historical Gen3.5, human, Apple and all three Gen5 resource archives installed
+  correctly. Gen5 preparation and re-installation passed; already correct files
+  were reused. No new Gen5 training run was needed for this installer check.
+- 19 installer/launcher tests passed, including interrupted HTTP download/Range,
+  cache reuse, missing/corrupt parts, path/symlink rejection, explicit repair and
+  dotted output names. The check found and fixed the `gen3.2`/`gen3.3` sidecar-name
+  collision before continuing the generation trials.
+- The English dashboard HTML/API returned 200 in the fresh checkout and stayed idle.
+
+These are local macOS and loopback HTTP checks. Live GitHub HTTPS distribution
+and remote CI are still pending publication authorization. Resource download code
+is ready, but its default release URL intentionally remains unset.
+
+See [machine-readable results](onboarding-results.json).
