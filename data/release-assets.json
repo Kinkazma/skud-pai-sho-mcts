@@ -104,6 +104,10 @@
           "sha256": "64294e5fed6c07554d947e1d21a027b7af600eb911e9c160d73f2c102f401c27",
           "files": 1445
         }
+      ],
+      "required_sources": [
+        "experimental/gen5/manage.py",
+        "experimental/gen5/models/accepted.json"
       ]
     }
   }

@@ -68,3 +68,16 @@ add `gen35-replay` only when using the historical Gen3.5 `--replay` option. The
 `python3 scripts/assets.py verify --profile gen35-replay` for a full historical
 Gen3.5 resource check. Missing groups are rejected before native training.
 See [the complete resource table](../data/ASSETS.md), including Gen5 and Apple.
+
+## Gen3.1 save and continue example
+
+After the bounded Gen3.1 command has exited, its `final-model.json` and
+`replay-final.json` can seed a new segment through the native compact command:
+
+```sh
+target/release/paisho-compact selfplay --model runs/new-g31/final-model.json --replay-input runs/new-g31/replay-final.json --output runs/continued-g31 --seconds 60 --workers 2 --simulations 8 --decision-limit 512 --seed 72
+```
+
+This continues the value weights and replay. The root wrapper's `--resume-from`
+option is for Gen3.2–3.5; it deliberately refuses Gen3.1 rather than loading an
+incompatible policy-memory replay. Keep the previous outputs available.

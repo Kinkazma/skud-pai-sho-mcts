@@ -37,9 +37,8 @@ Apple research requires macOS and Xcode/Swift as documented separately. Gen3.5
 runs on CPU; installing an Apple backend does not accelerate it automatically.
 
 ```sh
-python3 scripts/assets.py verify --profile gen3
 python3 manage.py doctor
-python3 manage.py setup
+python3 manage.py setup --asset-dir /path/to/downloads
 python3 manage.py play --generation 3.5 --opponent 3.1 --budget 32 --output runs/example.psr
 python3 manage.py serve --generation 3.5 --budget 32
 ```
@@ -48,7 +47,8 @@ python3 manage.py serve --generation 3.5 --budget 32
 `setup`. Git clone and the automatic GitHub source ZIP do not include large data.**
 For historical Gen3.5 replay, also install `gen35-replay`; for the human corpus,
 install `human`. Gen5 and Apple have separate groups; see the generation table. The current local preparation already contains them.
-No remote release URL is invented while publication is pending. `prepare` verifies
+Use the [installation guide](docs/INSTALL.md) for automatic local/HTTPS resource
+installation, verification and recovery. No remote release URL is invented while publication is pending. `prepare` verifies
 asset hashes and produces ignored, machine-local copies under `portable-models`.
 Run it again after moving the checkout. Published models retain portable paths.
 
@@ -103,4 +103,5 @@ applicable. The normalized human dataset is **not relicensed as MIT**; see
 [data documentation](data/README.md). No personal hosting setup, credentials or
 website artwork is part of the public source export.
 
-See [local validation and remaining work](docs/VALIDATION.md).
+See [installation](docs/INSTALL.md), [completeness by generation](docs/COMPLETENESS.md),
+and [local validation and remaining work](docs/VALIDATION.md).

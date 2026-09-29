@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
-"""List, verify and package release resources locally. Never uploads or downloads."""
+"""List, install, verify or package release resources. Never uploads anything."""
 import argparse
 import hashlib
 import json
 import tarfile
 from pathlib import Path, PurePosixPath
+import sys
+
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_ARCHIVE_BYTES = 1_800_000_000  # Decimal bytes, including TAR headers/padding.
@@ -159,10 +163,13 @@ def verify_packs(root, group, out):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['list', 'check', 'verify', 'pack', 'verify-packs'])
+    parser.add_argument('command', choices=['list', 'install', 'check', 'verify', 'pack', 'verify-packs'])
     parser.add_argument('group', nargs='?')
     parser.add_argument('--profile', choices=PROFILES)
     parser.add_argument('--output', default='packs')
+    parser.add_argument('--from-dir', help='Directory containing downloaded release TAR files')
+    parser.add_argument('--base-url', help='HTTPS release asset directory; loopback HTTP for tests')
+    parser.add_argument('--repair', action='store_true', help='Restore altered manifest-listed resource files')
     args = parser.parse_args()
     try:
         groups = PROFILES[args.profile] if args.profile else ([args.group] if args.group else [])
@@ -175,6 +182,10 @@ def main():
             return
         if not groups:
             parser.error('Choose a group or --profile')
+        if args.command == 'install':
+            from scripts.asset_install import install
+            install(groups, args.from_dir, args.base_url, args.repair)
+            return
         if args.command == 'check':
             require_groups(groups)
             print('Required resource files are present (run verify for SHA-256 checks).')
@@ -189,7 +200,7 @@ def main():
             else:
                 count = verify_packs(ROOT, group, (ROOT / args.output).resolve())
                 print(f'Verified all {count} members of {group} archives')
-    except (ValueError, OSError, KeyError) as error:
+    except (ValueError, OSError, KeyError, tarfile.TarError) as error:
         raise SystemExit(str(error)) from error
 
 
