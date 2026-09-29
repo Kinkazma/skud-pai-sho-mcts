@@ -1,6 +1,7 @@
 # Install, play, train and continue
 
-This is a local release draft. No public asset URL is configured yet. All commands
+This is a local release draft. No public asset URL is configured yet.
+Replace the example download directory with your own; quote paths containing spaces. All commands
 below run from the repository root. No campaign starts during installation.
 
 ## Prerequisites
@@ -108,8 +109,7 @@ The installer verifies the entire selected group's archives and member hashes
 before replacing any destination file in that group. Missing or altered archives,
 unexpected members, symbolic links and traversal paths are rejected. Existing
 files with different contents are preserved by default. To deliberately restore
-release resources, use `python3 scripts/assets.py install --profile gen3
---from-dir /path/to/downloads --repair` on one line. This affects only files in the
+release resources, use `python3 scripts/assets.py install --profile gen3 --from-dir /path/to/downloads --repair`. This affects only files in the
 resource manifest, never trained outputs under `runs/`.
 
 Installation commits files individually after group verification. If interrupted

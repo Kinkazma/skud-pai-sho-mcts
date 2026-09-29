@@ -6,6 +6,8 @@ from scripts.prepare_models import ROOT,prepare,sha
 from scripts.assets import require_groups, PROFILES
 from scripts.asset_install import install
 
+def sidecar(output,suffix):return output.with_name(output.name+suffix)
+
 def run(args):subprocess.run([str(a) for a in args],cwd=ROOT,check=True)
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['doctor','install','setup','prepare','play','serve','train','pause','status','dashboard'])
@@ -26,7 +28,7 @@ def main():
   run(['cargo','build','--release','--locked','-p','paisho-train','--bin','paisho-gen32','--bin','paisho-compact']);run(['cargo','build','--manifest-path','inference/Cargo.toml','--release','--locked','-p','paisho-train','--bin','paisho-gen3-suite']);prepare();return
  if a.command=='dashboard':run([sys.executable,ROOT/'scripts/dashboard.py','--port',a.port]);return
  if a.command=='pause':
-  if output.with_suffix('.launcher.json').exists() and json.loads(output.with_suffix('.launcher.json').read_text()).get('generation')=='3.1':raise SystemExit('The historical Gen3.1 trainer has no cooperative pause; it stops at its configured duration. Use short bounded runs.')
+  if sidecar(output,'.launcher.json').exists() and json.loads(sidecar(output,'.launcher.json').read_text()).get('generation')=='3.1':raise SystemExit('The historical Gen3.1 trainer has no cooperative pause; it stops at its configured duration. Use short bounded runs.')
   if not (output/'progress.json').exists():raise SystemExit('No training progress found at this output.')
   (output/'pause-request.json').write_text('{}\n');print('Cooperative pause requested.');return
  if a.command=='status':
@@ -44,10 +46,10 @@ def main():
   if g=='3.1':
    if a.replay or a.resume_from:raise SystemExit('Gen3.1 replay continuation uses paisho-compact selfplay --replay-input; see docs/TRAINING.md.')
    if output.exists():raise SystemExit('Output already exists')
-   output.parent.mkdir(parents=True,exist_ok=True);output.with_suffix('.launcher.json').write_text(json.dumps({'generation':'3.1','seconds':a.seconds})+'\n')
+   output.parent.mkdir(parents=True,exist_ok=True);sidecar(output,'.launcher.json').write_text(json.dumps({'generation':'3.1','seconds':a.seconds})+'\n')
    run([ROOT/'target/release/paisho-compact','selfplay','--model',models/'gen3-1.json','--output',output,'--seconds',a.seconds,'--workers',a.workers,'--simulations',a.budget,'--decision-limit',a.decisions,'--seed',a.seed]);return
   if g not in ['3.2','3.3','3.4','3.5']:raise SystemExit('Unsupported generation')
-  if output.exists() or output.with_suffix('.config.json').exists():raise SystemExit('Use a new output directory; never overwrite a previous run.')
+  if output.exists() or sidecar(output,'.config.json').exists():raise SystemExit('Use a new output directory; never overwrite a previous run.')
   if a.seconds<1 or a.workers<1 or a.replay_gib<1:raise SystemExit('Positive resource settings required')
   config=json.loads((ROOT/'configs/gen3.5-historical.json').read_text())
   config.update(model=str(models/f"gen{g.replace('.','-')}.json"),output=str(output),seconds=a.seconds,threads=a.workers,actors=a.workers,archive_workers=1,budgets=[a.budget],caps=[5.0],decisions=a.decisions,seed=a.seed,checkpoint_seconds=10,replay_max_bytes=a.replay_gib*1024**3,replay_index=str(models/'replay-gen3.5.json') if a.replay else None)
@@ -58,7 +60,7 @@ def main():
   if a.resume_from:
    prior=(ROOT/a.resume_from).resolve();previous=json.loads((prior/'checkpoint.json').read_text())
    config['model']=previous['model'];config['replay_index']=previous['replay_index']
-  output.parent.mkdir(parents=True,exist_ok=True);cfg=output.with_suffix('.config.json');cfg.write_text(json.dumps(config,indent=2)+'\n');run([trainer,'run',cfg])
+  output.parent.mkdir(parents=True,exist_ok=True);cfg=sidecar(output,'.config.json');cfg.write_text(json.dumps(config,indent=2)+'\n');run([trainer,'run',cfg])
 if __name__=='__main__':
  try:main()
  except (ValueError,OSError,KeyError,subprocess.CalledProcessError) as error:raise SystemExit(str(error)) from error
