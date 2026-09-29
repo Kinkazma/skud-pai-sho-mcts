@@ -1,34 +1,197 @@
 #!/usr/bin/env python3
-"""Verify or package local data packs. Never downloads or uploads anything."""
-import argparse,hashlib,json,tarfile
-from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-def digest(p):
- h=hashlib.sha256()
- with p.open('rb') as f:
-  for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
- return h.hexdigest()
+"""List, verify and package release resources locally. Never uploads or downloads."""
+import argparse
+import hashlib
+import json
+import tarfile
+from pathlib import Path, PurePosixPath
+
+ROOT = Path(__file__).resolve().parents[1]
+MAX_ARCHIVE_BYTES = 1_800_000_000  # Decimal bytes, including TAR headers/padding.
+PROFILES = {
+    'gen3': ['core-memory'],  # The portable launcher prepares the entire suite.
+    'gen35-replay': ['core-memory', 'gen35-replay'],
+    'human': ['human'],
+    'gen4': [],
+    'gen5': ['core-memory', 'human', 'gen5'],
+    'apple': ['apple'],
+}
+
+
+def digest(path):
+    h = hashlib.sha256()
+    with path.open('rb') as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b''):
+            h.update(block)
+    return h.hexdigest()
+
+
+def entries_for(root, group):
+    path = root / 'data/manifests' / (group + '.json')
+    if Path(group).name != group or not path.is_file():
+        raise ValueError('Unknown resource group; see data/ASSETS.md')
+    entries = json.loads(path.read_text())['files']
+    for name in entries:
+        rel = PurePosixPath(name)
+        if rel.is_absolute() or '..' in rel.parts or str(rel) != name:
+            raise ValueError('Invalid asset path in manifest: ' + name)
+    return entries
+
+
+def require_groups(groups, root=ROOT):
+    """Fast preflight; full SHA-256 verification is an explicit install step."""
+    missing = []
+    for group in groups:
+        entries = entries_for(root, group)
+        if any(not (root / n).is_file() or (root / n).stat().st_size != e['bytes']
+               for n, e in entries.items()):
+            missing.append(group)
+    if missing:
+        raise ValueError('Missing or incomplete release resources: ' + ', '.join(missing)
+                         + '. Install ALL parts of these groups; see data/ASSETS.md.')
+
+
+def verify_inputs(root, entries):
+    for name, entry in entries.items():
+        path = root / name
+        if (not path.is_file() or path.is_symlink()
+                or path.stat().st_size != entry['bytes']
+                or digest(path) != entry['sha256']):
+            raise ValueError('Missing or altered asset: ' + name)
+
+
+def header(name, size):
+    info = tarfile.TarInfo(name)
+    info.size = size
+    info.mode = 0o644
+    info.uid = info.gid = 0
+    info.uname = info.gname = ''
+    info.mtime = 0
+    return info
+
+
+def member_bytes(name, size):
+    return len(header(name, size).tobuf(format=tarfile.PAX_FORMAT)) + (size + 511) // 512 * 512
+
+
+def archive_bytes(payload):
+    # Two end blocks, then the tarfile module pads to a full record.
+    record = tarfile.RECORDSIZE
+    return ((payload + 1024 + record - 1) // record) * record
+
+
+def plan_parts(entries, limit=MAX_ARCHIVE_BYTES):
+    parts, batch, size = [], [], 0
+    for name, entry in entries.items():
+        cost = member_bytes(name, entry['bytes'])
+        if archive_bytes(cost) > limit:
+            raise ValueError('Single asset exceeds archive limit: ' + name)
+        if batch and archive_bytes(size + cost) > limit:
+            parts.append(batch)
+            batch, size = [], 0
+        batch.append(name)
+        size += cost
+    if batch:
+        parts.append(batch)
+    return parts
+
+
+def pack(root, group, out, limit=MAX_ARCHIVE_BYTES):
+    entries = entries_for(root, group)
+    parts = plan_parts(entries, limit)
+    paths = [out / f'{group}-{i + 1:02d}.tar' for i in range(len(parts))]
+    index = out / (group + '.json')
+    if index.exists() or any(p.exists() or p.with_suffix('.tar.partial').exists() for p in paths):
+        raise ValueError('Pack output exists; choose a new output folder')
+    verify_inputs(root, entries)
+    out.mkdir(parents=True, exist_ok=True)
+    result = []
+    for path, names in zip(paths, parts):
+        tmp = path.with_suffix('.tar.partial')
+        try:
+            with tarfile.open(tmp, 'w', format=tarfile.PAX_FORMAT) as archive:
+                for name in names:
+                    with (root / name).open('rb') as source:
+                        archive.addfile(header(name, entries[name]['bytes']), source)
+            expected = archive_bytes(sum(member_bytes(n, entries[n]['bytes']) for n in names))
+            if tmp.stat().st_size != expected or expected > limit:
+                raise ValueError('Unexpected archive size: ' + path.name)
+            tmp.rename(path)
+        finally:
+            tmp.unlink(missing_ok=True)
+        result.append({'file': path.name, 'bytes': path.stat().st_size,
+                       'sha256': digest(path), 'files': len(names)})
+    manifest = {'group': group, 'max_archive_bytes': limit, 'parts': result}
+    index.write_text(json.dumps(manifest, indent=2) + '\n')
+    return manifest
+
+
+def verify_packs(root, group, out):
+    """Read every TAR member against the source manifest without extracting it."""
+    entries = entries_for(root, group)
+    index = json.loads((out / (group + '.json')).read_text())
+    seen = set()
+    for part in index['parts']:
+        name = part['file']
+        if Path(name).name != name:
+            raise ValueError('Invalid archive filename')
+        path = out / name
+        if (path.stat().st_size != part['bytes'] or part['bytes'] > MAX_ARCHIVE_BYTES
+                or digest(path) != part['sha256']):
+            raise ValueError('Archive size or SHA-256 mismatch: ' + name)
+        with tarfile.open(path, 'r|') as archive:
+            for member in archive:
+                entry = entries.get(member.name)
+                if (entry is None or member.name in seen or not member.isfile()
+                        or member.size != entry['bytes']):
+                    raise ValueError('Unexpected, duplicated or altered member: ' + member.name)
+                h = hashlib.sha256()
+                with archive.extractfile(member) as stream:
+                    for block in iter(lambda: stream.read(1024 * 1024), b''):
+                        h.update(block)
+                if h.hexdigest() != entry['sha256']:
+                    raise ValueError('Member SHA-256 mismatch: ' + member.name)
+                seen.add(member.name)
+    if seen != set(entries):
+        raise ValueError('Incomplete archive set: ' + group)
+    return len(seen)
+
+
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['verify','pack']);p.add_argument('group');p.add_argument('--output',default='packs');a=p.parse_args()
- manifest=ROOT/'data/manifests'/(a.group+'.json')
- if not manifest.is_file():raise SystemExit('Unknown data group; see data/ASSETS.md')
- entries=json.loads(manifest.read_text())['files']
- for rel,e in entries.items():
-  f=ROOT/rel
-  if not f.is_file() or f.stat().st_size!=e['bytes'] or digest(f)!=e['sha256']:raise SystemExit('Missing or altered asset: '+rel)
- if a.command=='verify':print(f'Verified {len(entries)} files in {a.group}');return
- out=(ROOT/a.output).resolve();out.mkdir(parents=True,exist_ok=True);parts=[];batch=[];size=0
- for rel,e in entries.items():
-  if batch and size+e['bytes']>1024**3:parts.append(batch);batch=[];size=0
-  batch.append(rel);size+=e['bytes']
- if batch:parts.append(batch)
- paths=[out/f'{a.group}-{i+1:02d}.tar' for i in range(len(parts))]
- if any(x.exists() for x in paths) or (out/(a.group+'.json')).exists():raise SystemExit('Pack output exists; choose a new output folder')
- def metadata(info):info.uid=info.gid=0;info.uname=info.gname='';info.mtime=0;return info
- result=[]
- for path,files in zip(paths,parts):
-  with tarfile.open(path,'w') as archive:
-   for rel in files:archive.add(ROOT/rel,arcname=rel,recursive=False,filter=metadata)
-  result.append({'file':path.name,'bytes':path.stat().st_size,'sha256':digest(path)})
- (out/(a.group+'.json')).write_text(json.dumps({'group':a.group,'parts':result},indent=2)+'\n');print(json.dumps(result,indent=2))
-if __name__=='__main__':main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('command', choices=['list', 'check', 'verify', 'pack', 'verify-packs'])
+    parser.add_argument('group', nargs='?')
+    parser.add_argument('--profile', choices=PROFILES)
+    parser.add_argument('--output', default='packs')
+    args = parser.parse_args()
+    try:
+        groups = PROFILES[args.profile] if args.profile else ([args.group] if args.group else [])
+        if args.command == 'list':
+            catalog = json.loads((ROOT / 'data/release-assets.json').read_text())
+            print(json.dumps({g: catalog['groups'][g] for g in (groups if args.profile or args.group else catalog['groups'])}, indent=2))
+            return
+        if not groups and args.profile:
+            print('This profile needs no additional release resource group.')
+            return
+        if not groups:
+            parser.error('Choose a group or --profile')
+        if args.command == 'check':
+            require_groups(groups)
+            print('Required resource files are present (run verify for SHA-256 checks).')
+            return
+        for group in groups:
+            if args.command == 'verify':
+                entries = entries_for(ROOT, group)
+                verify_inputs(ROOT, entries)
+                print(f'Verified {len(entries)} files in {group}')
+            elif args.command == 'pack':
+                print(json.dumps(pack(ROOT, group, (ROOT / args.output).resolve()), indent=2))
+            else:
+                count = verify_packs(ROOT, group, (ROOT / args.output).resolve())
+                print(f'Verified all {count} members of {group} archives')
+    except (ValueError, OSError, KeyError) as error:
+        raise SystemExit(str(error)) from error
+
+
+if __name__ == '__main__':
+    main()

@@ -2,26 +2,31 @@
   "core-memory": {
     "files": 4,
     "bytes": 195699274,
-    "manifest": "data/manifests/core-memory.json"
+    "manifest": "data/manifests/core-memory.json",
+    "archive_catalog": "data/release-assets.json"
   },
   "human": {
     "files": 1378,
     "bytes": 8342451,
-    "manifest": "data/manifests/human.json"
+    "manifest": "data/manifests/human.json",
+    "archive_catalog": "data/release-assets.json"
   },
   "gen35-replay": {
     "files": 46774,
     "bytes": 888088181,
-    "manifest": "data/manifests/gen35-replay.json"
+    "manifest": "data/manifests/gen35-replay.json",
+    "archive_catalog": "data/release-assets.json"
   },
   "apple": {
     "files": 4,
     "bytes": 225565489,
-    "manifest": "data/manifests/apple.json"
+    "manifest": "data/manifests/apple.json",
+    "archive_catalog": "data/release-assets.json"
   },
   "gen5": {
     "files": 19183,
     "bytes": 3879127048,
-    "manifest": "data/manifests/gen5.json"
+    "manifest": "data/manifests/gen5.json",
+    "archive_catalog": "data/release-assets.json"
   }
 }
