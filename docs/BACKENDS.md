@@ -31,3 +31,8 @@ Four historical pure-network checkpoints are staged in `assets/apple-checkpoints
 Both their internal trailing checksums and independent whole-file SHA-256 values
 were verified. Loading every historical checkpoint through a full training
 continuation has not been tested by this extraction. See `apple/checkpoints.json`.
+
+The checkpoint files are the separate `apple` release resource group. Download
+all its parts, extract them into the repository root and run
+`python3 scripts/assets.py verify --profile apple` before using them. They are
+not required for Gen3.5 CPU play/training. See [resources](../data/ASSETS.md).
