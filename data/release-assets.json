@@ -1,5 +1,5 @@
 {
-  "status": "publication-in-progress",
+  "status": "verified-github-release-assets",
   "release_url": "https://github.com/Kinkazma/skud-pai-sho-mcts/releases/download/v0.1.0",
   "max_archive_bytes": 1800000000,
   "size_unit": "decimal bytes; includes archive metadata",
@@ -168,12 +168,224 @@
       "bytes": 56760895726,
       "manifest": "data/manifests/gen5-history.json",
       "optional": true,
-      "status": "indexed-not-packaged",
-      "parts": [],
+      "status": "remote-sha256-verified",
+      "parts": [
+        {
+          "file": "gen5-history-01.tar",
+          "bytes": 1799997440,
+          "sha256": "b7af762327667ef0d8faeb2d83f5b0f184691d5d19b762897b83031d817ba79e",
+          "files": 259060
+        },
+        {
+          "file": "gen5-history-02.tar",
+          "bytes": 1799987200,
+          "sha256": "a8cffc71802db7be8818d21bc72fff546211441c75a51ef17410f35182f7b581",
+          "files": 258931
+        },
+        {
+          "file": "gen5-history-03.tar",
+          "bytes": 1799997440,
+          "sha256": "28e1008e1564b430d38dac2a367a1f2b82365edc327fb322ef8834abb475c6ce",
+          "files": 365491
+        },
+        {
+          "file": "gen5-history-04.tar",
+          "bytes": 1799700480,
+          "sha256": "990ac576edefb090aca3e98da2e19d2353e2f63369e1d8829f0eb8b41890f1a1",
+          "files": 455979
+        },
+        {
+          "file": "gen5-history-05.tar",
+          "bytes": 1799843840,
+          "sha256": "9b5f770636c587b55d95a4253990d938e6fb0e58388a74b3d02a3fbecb50556e",
+          "files": 18933
+        },
+        {
+          "file": "gen5-history-06.tar",
+          "bytes": 1799516160,
+          "sha256": "faa446acb3640fe0eebbef500577099984f9957561fe65f73187026982618ed3",
+          "files": 19370
+        },
+        {
+          "file": "gen5-history-07.tar",
+          "bytes": 1799884800,
+          "sha256": "5a24eb76e67f3104ba3ae7980d1c522ef6f1b457a62738179993952fa196b0ba",
+          "files": 19760
+        },
+        {
+          "file": "gen5-history-08.tar",
+          "bytes": 1799997440,
+          "sha256": "fc5364e715c4352381f326f2de85d98551e9c757086aac6603b9ce9607891dad",
+          "files": 36083
+        },
+        {
+          "file": "gen5-history-09.tar",
+          "bytes": 1799444480,
+          "sha256": "63100e02978a60ec3e1a59a67488ffcfd13fc5831bb8faf8c8004a7b96413747",
+          "files": 91079
+        },
+        {
+          "file": "gen5-history-10.tar",
+          "bytes": 1799362560,
+          "sha256": "4a1725701d193aeeac35a7dba6438f50ff6ecc45dabdcaa59bf591d1a1145117",
+          "files": 13108
+        },
+        {
+          "file": "gen5-history-11.tar",
+          "bytes": 1799792640,
+          "sha256": "513f5a1406401f81511e4fe124e113c366898cc01d8e6445aed5766101962c8e",
+          "files": 13749
+        },
+        {
+          "file": "gen5-history-12.tar",
+          "bytes": 1799239680,
+          "sha256": "4cb6ae83c3c2eac70f6c388437462a4f804e209afabeaacb86f172c0418d062c",
+          "files": 13333
+        },
+        {
+          "file": "gen5-history-13.tar",
+          "bytes": 1799884800,
+          "sha256": "bdd91b50b918bbfe0b131f39344ec575dda779b6c76ef83f5fb7da9f58075622",
+          "files": 13620
+        },
+        {
+          "file": "gen5-history-14.tar",
+          "bytes": 1799137280,
+          "sha256": "0c37bb2481b1add8735869206a8691a68c4f8eca1f101fa5c591b392a1eb6988",
+          "files": 13305
+        },
+        {
+          "file": "gen5-history-15.tar",
+          "bytes": 1799464960,
+          "sha256": "3e8a93978b46f650576dfeb80082e84b2c99f3183d88d849e099895cae3646b5",
+          "files": 13645
+        },
+        {
+          "file": "gen5-history-16.tar",
+          "bytes": 1799639040,
+          "sha256": "b5b4261b1b0c8e98629314d59e873f8881fd95945bb883d1e04965186c3cf728",
+          "files": 13677
+        },
+        {
+          "file": "gen5-history-17.tar",
+          "bytes": 1799772160,
+          "sha256": "1b4b9210db03bb8852ebae4e86b18b2758072c596eb4db461ecec18b0e7ef69a",
+          "files": 13452
+        },
+        {
+          "file": "gen5-history-18.tar",
+          "bytes": 1799925760,
+          "sha256": "8c00fa0a10e6c19d8d4bc04c0ce91ccb72547df6de5f33a09f1893542baffcb2",
+          "files": 13519
+        },
+        {
+          "file": "gen5-history-19.tar",
+          "bytes": 1799710720,
+          "sha256": "fe678113151014d7e2d0a2025c576af1dc92039e62f85ea02937fe662714a8c7",
+          "files": 13355
+        },
+        {
+          "file": "gen5-history-20.tar",
+          "bytes": 1799956480,
+          "sha256": "8d66cfbb426359a7cd33f4b239509f5038ea1dbc60a5754b04a1736e65dd02e9",
+          "files": 71231
+        },
+        {
+          "file": "gen5-history-21.tar",
+          "bytes": 1799987200,
+          "sha256": "ef8442b03ed7f73bcdc8aecd48a3b01630a3bb86b23787e440f7b1e4d0a0eab1",
+          "files": 100459
+        },
+        {
+          "file": "gen5-history-22.tar",
+          "bytes": 1799987200,
+          "sha256": "7a01ab298258ba8e0f9e69ca4e242523a9ae35be82b6b9be3c12d578c14c73ea",
+          "files": 100446
+        },
+        {
+          "file": "gen5-history-23.tar",
+          "bytes": 1799956480,
+          "sha256": "44489d3fd6c4f6a40b4e4e0942bb76e410c4234cce5ec687424131120596dd78",
+          "files": 100953
+        },
+        {
+          "file": "gen5-history-24.tar",
+          "bytes": 1799987200,
+          "sha256": "8ea55a912b244b2a781b8c7d56ef947e8c28aab25df7688a2b667c23b2ae0d7d",
+          "files": 100287
+        },
+        {
+          "file": "gen5-history-25.tar",
+          "bytes": 1799956480,
+          "sha256": "d179920deed2aa72f84bad18afb365283300ad1964531ff9f80c66fecf5428cd",
+          "files": 100339
+        },
+        {
+          "file": "gen5-history-26.tar",
+          "bytes": 1799976960,
+          "sha256": "4fd52fd8333e697f9ac9789fb6aa780873d664d8b47589e0fd99f57cc6e1033c",
+          "files": 100478
+        },
+        {
+          "file": "gen5-history-27.tar",
+          "bytes": 1799997440,
+          "sha256": "d82f64c3221d0195e52011ab9501533a07a425a8f259587fa356521aec8f5751",
+          "files": 100649
+        },
+        {
+          "file": "gen5-history-28.tar",
+          "bytes": 1799915520,
+          "sha256": "d7d21c2a5d1c36edfe680396ca322b8e171dcd7c5b95a44e40d80b1929dfe7e2",
+          "files": 100876
+        },
+        {
+          "file": "gen5-history-29.tar",
+          "bytes": 1799997440,
+          "sha256": "48a8ce2e0ee30b3fe6b5d238ebf5fa6f937b64b27459f20dce73ebe5f5966c93",
+          "files": 101184
+        },
+        {
+          "file": "gen5-history-30.tar",
+          "bytes": 1799997440,
+          "sha256": "cc4ab41aad268bfa8406bb2ce7d212e5746c93513e4c62e3add0d73e5655e3d2",
+          "files": 101123
+        },
+        {
+          "file": "gen5-history-31.tar",
+          "bytes": 1799966720,
+          "sha256": "e901af2a73d41df5ae0143e7d8ce48fae17d875c52a2c07b29ab2b506d0d36dc",
+          "files": 100043
+        },
+        {
+          "file": "gen5-history-32.tar",
+          "bytes": 1799946240,
+          "sha256": "29cb951817e67bbc2857f82bf1f3338cd046cde361df959fd28e31564549877e",
+          "files": 101170
+        },
+        {
+          "file": "gen5-history-33.tar",
+          "bytes": 1799567360,
+          "sha256": "cb0eb8a242601ef9e008bd9ad301b223de68394c23baf2414951f2f133e8ddcb",
+          "files": 50910
+        },
+        {
+          "file": "gen5-history-34.tar",
+          "bytes": 1799270400,
+          "sha256": "290da698294e621414608c696c0ae756be00b4ae7f61f8c31e56b19f7d1d4b09",
+          "files": 10022
+        },
+        {
+          "file": "gen5-history-35.tar",
+          "bytes": 926074880,
+          "sha256": "ee1dbf2fe4d8701ddf502fc6d968761f13d2c23bb462433cafe41702dd50c2d0",
+          "files": 3724
+        }
+      ],
       "required_sources": [
         "experimental/gen5/manage.py"
       ],
-      "description": "Complete historical durable state; not required for play or a new training pilot."
+      "description": "Complete historical durable state; not required for play or a new training pilot.",
+      "archive_bytes": 62118840320
     },
     "gen5-history-index": {
       "files": 301,
