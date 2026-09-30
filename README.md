@@ -6,12 +6,14 @@ branch. The last accepted actor and the later learner are different artifacts.
 
 Use [the Gen5 research guide](experimental/gen5/README.md) and its explicit
 `experimental/gen5/manage.py` commands. The root `manage.py` remains the Gen3
-compatibility tool. The historical Gen5 campaign resume is not yet qualified;
-the supplied launcher creates a new bounded experiment from accepted weights.
+compatibility tool. The small launcher creates a new bounded experiment from accepted weights.
+A separate optional [historical workflow](docs/GEN5_HISTORICAL_CONTINUATION.md)
+restores the saved learner, accepted actor, FIFO, recall and protections. The
+original/prepared algorithms and the tested continuation scope are distinguished.
 
 The branch includes native sources, staged consolidation/recall repairs, model
 weights, inputs and asset manifests. Human corpus redistribution was confirmed by the project maintainer.
-Local source preparation does not constitute a public release or strength claim.
+Execution and restoration checks are not evidence of playing strength.
 
 See [validation and remaining work](docs/VALIDATION.md),
 [data packs](data/ASSETS.md), and [branch identities](docs/BRANCHES.md).
@@ -20,9 +22,13 @@ See [validation and remaining work](docs/VALIDATION.md),
 
 ## Required release resources
 
-Install `core-memory-01.tar`, `human-01.tar`, and **all three** Gen5 parts:
-`gen5-01.tar`, `gen5-02.tar`, `gen5-03.tar`. They are not included in a Git clone
-or the automatic source ZIP. See [installation and verification](data/ASSETS.md)
+For play/comparison, use `--profile gen5-play` (about 583 MB of resources).
+For the new-training pilot, use `--profile gen5` (about 638 MB total).
+The much larger historical learning-state archive is **optional**, separately
+packaged with independently verified restoration checks. It is not needed for either
+of those two uses. [What the data contains](docs/GEN5_DATA_GUIDE.md) explains the
+distinction. Resources are not included in a Git clone or the automatic source
+ZIP. See [installation and verification](data/ASSETS.md)
 and [exact filenames, sizes and SHA-256 hashes](data/release-assets.json).
 Run `python3 scripts/assets.py verify --profile gen5` before using the launcher.
 

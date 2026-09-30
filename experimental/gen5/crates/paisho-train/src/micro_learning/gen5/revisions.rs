@@ -112,8 +112,8 @@ pub(super) fn store(
         );
         let path = directory.join(format!("{key}.json"));
         let incoming = Lesson::from_saved(s);
-        let mut r = if path.exists() {
-            let r: Revision = serde_json::from_slice(&fs::read(&path)?)?;
+        let mut r = if let Some(bytes) = read_revision(&path)? {
+            let r: Revision = serde_json::from_slice(&bytes)?;
             verify(&r, &key)?;
             r
         } else {
@@ -149,12 +149,21 @@ pub(super) fn store(
     }
     Ok(())
 }
+// Historical release archives compress dense annotations without changing any
+// JSON numeric token. New native revisions still supersede them atomically as JSON.
+fn read_revision(path: &Path) -> Result<Option<Vec<u8>>> {
+    if path.exists() { return Ok(Some(fs::read(path)?)); }
+    let compressed = path.with_extension("json.gz");
+    if !compressed.exists() { return Ok(None); }
+    use std::io::Read;
+    let mut bytes = Vec::new();
+    flate2::read::GzDecoder::new(fs::File::open(compressed)?).read_to_end(&mut bytes)?;
+    Ok(Some(bytes))
+}
 pub(super) fn lookup(root: &Path, key: &str) -> Result<Option<Lesson>> {
     let path = root.join("revisions").join(format!("{key}.json"));
-    if !path.exists() {
-        return Ok(None);
-    }
-    let r: Revision = serde_json::from_slice(&fs::read(path)?)?;
+    let Some(bytes) = read_revision(&path)? else {return Ok(None);};
+    let r: Revision = serde_json::from_slice(&bytes)?;
     verify(&r, key)?;
     Ok(Some(r.lesson))
 }
@@ -184,6 +193,32 @@ fn merge_structured(old:&[(String,MicroStructuredTarget)],new:&[(String,MicroStr
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn compressed_revision_preserves_lesson_and_plain_updates_take_priority() {
+        use std::io::Write;
+        let dir=std::env::temp_dir().join(format!("portable-revision-{}",std::process::id()));
+        fs::create_dir_all(dir.join("revisions")).unwrap();
+        let key="portable-fixture";
+        let l=lesson(-1.,Some(-1.),"a","rules-terminal-z");
+        let mut r=Revision {rules:RULES.to_string(),prefix_sha256:key.into(),version:7,
+            bundle:"fixture".into(),lesson:l.clone(),lesson_sha256:sha256(&serde_json::to_vec(&l).unwrap()),
+            proof:None,estimate:None,observed:Some(l),outcomes:BTreeMap::new()};
+        let bytes=serde_json::to_vec(&r).unwrap();
+        let path=dir.join("revisions").join(format!("{key}.json"));
+        let mut encoder=flate2::write::GzEncoder::new(Vec::new(),flate2::Compression::fast());
+        encoder.write_all(&bytes).unwrap();
+        fs::write(path.with_extension("json.gz"),encoder.finish().unwrap()).unwrap();
+        assert_eq!(read_revision(&path).unwrap().unwrap(),bytes);
+        assert_eq!(serde_json::to_vec(&lookup(&dir,key).unwrap().unwrap()).unwrap(),serde_json::to_vec(&r.lesson).unwrap());
+        r.lesson=lesson(1.,Some(1.),"b","rules-terminal-z");
+        r.lesson_sha256=sha256(&serde_json::to_vec(&r.lesson).unwrap());
+        durable::write_pending(&path,&r).unwrap();
+        assert_eq!(lookup(&dir,key).unwrap().unwrap().value,1.);
+        fs::remove_file(&path).unwrap();
+        fs::write(path.with_extension("json.gz"),b"corrupt").unwrap();
+        assert!(lookup(&dir,key).is_err());
+        fs::remove_dir_all(dir).unwrap();
+    }
     fn lesson(z: f64, obs: Option<f64>, id: &str, reason: &str) -> Lesson {
         Lesson::from_saved(&SavedMicroExample { structured: Vec::new(),
             evidence: Some(TargetEvidence { policy_support:false,

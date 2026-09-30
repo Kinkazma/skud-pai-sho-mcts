@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gen5 research commands. Historical campaign continuation is not qualified."""
+"""Gen5 research commands. For full historical state use tools/continue_history.py."""
 import argparse,hashlib,json,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
@@ -14,11 +14,12 @@ def localize(v):
  if isinstance(v,str) and v.startswith(('memory/','assets/','experimental/','data/')) and (ROOT/v).is_file():return str(ROOT/v)
  return v
 
-def prepare():
- require_groups(['core-memory','human','gen5'])
+def prepare(training=True):
+ require_groups(['core-memory','gen5-memory'] + (['human','gen5-learning'] if training else []))
  out=ROOT/'portable-models/gen5';out.mkdir(parents=True,exist_ok=True)
  for folder in ['models','inputs']:
   for p in (EXP/folder).glob('*.json'):
+   if not training and p.name=='human-dataset.json':continue
    value=localize(json.loads(p.read_text()))
    if value.get('memory_manifest'):value['memory_manifest_sha256']=sha(Path(value['memory_manifest']))
    d=out/folder/p.name;d.parent.mkdir(exist_ok=True);d.write_text(json.dumps(value,separators=(',',':'))+'\n')
@@ -29,7 +30,7 @@ def main():
  a=p.parse_args()
  if a.command=='build':subprocess.run(['cargo','build','--manifest-path',str(EXP/'Cargo.toml'),'--release','--locked','-p','paisho-train','--bin','paisho-gen5'],cwd=ROOT,check=True);return
  if not 0<a.seconds<=86400 or not 1<=a.workers<=64 or not 1<=a.decisions<=800:raise SystemExit('Positive bounded duration, workers and decisions required')
- local=prepare()
+ local=prepare(training=a.command!='compare')
  if a.command=='prepare':return
  output=(ROOT/a.output).resolve();cfg=output.with_suffix('.config.json')
  if output.exists() or cfg.exists():raise SystemExit('Select a new output; this command never resumes or overwrites an existing campaign.')

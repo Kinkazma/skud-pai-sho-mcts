@@ -93,6 +93,20 @@ impl PartialEq for SequenceBank {
 }
 pub fn sequence_source(source: &str) -> u64 {
     use sha2::{Digest, Sha256};
+    // Exported historical records retain their original source exclusion key
+    // without retaining a private filesystem path. Ordinary sources are unchanged.
+    if let Some(rest) = source.strip_prefix("portable-source/") {
+        if let Some((hex, game)) = rest.split_once('/') {
+            if hex.len() == 64 && !game.is_empty()
+                && hex.bytes().all(|c| c.is_ascii_hexdigit()) {
+                let mut bytes = [0u8; 8];
+                for (i, b) in bytes.iter_mut().enumerate() {
+                    *b = u8::from_str_radix(&hex[2*i..2*i+2], 16).unwrap();
+                }
+                return u64::from_le_bytes(bytes);
+            }
+        }
+    }
     let h = Sha256::digest(source.as_bytes());
     u64::from_le_bytes(h[..8].try_into().unwrap())
 }

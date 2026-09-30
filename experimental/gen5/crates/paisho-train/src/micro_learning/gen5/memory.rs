@@ -1,5 +1,7 @@
 //! RAM examples have one numeric representation. Durable indices reference
 //! immutable target archives, avoiding a second full replay JSON copy in RAM.
+mod portable;
+pub(super) use portable::example_digest;
 use super::*;
 use rayon::prelude::*;
 use std::{

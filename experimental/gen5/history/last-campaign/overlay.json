@@ -1,0 +1,8 @@
+{
+  "crates/paisho-train/src/micro_learning/gen5/runtime.rs": "44d5aa7dff36b2a689b0e34d232ecf1e132a910645784344ac414844491bdb4d",
+  "crates/paisho-train/src/micro_learning/gen5/durable.rs": "e53cdf52dd4ed35276fee1d85475c16e568580e58ce994f9be71bb989975e995",
+  "crates/paisho-train/src/micro_learning/gen5/protection.rs": "190338f2fb0be6dccd1975e52f31d15aad6b7ca612336f67ec621ccb7740e93a",
+  "crates/paisho-train/src/micro_learning/gen5/mod.rs": "64196334a1596a4194b299fcf3deb2a166a5a2cda9926c352526f1d4936e6c83",
+  "crates/paisho-train/src/micro_learning/gen5/protection/tests.rs": "95ce4f9bef665cec50d9da441684c462687abcec6363f26d7fc2496a448f2f89",
+  "crates/paisho-train/src/micro_learning/gen5/durable/structured.rs": "b9530bcebc371d9365d7791d4026af8524ed4d3f288488b65a972ab67cd1be7c"
+}

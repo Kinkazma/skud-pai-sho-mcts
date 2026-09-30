@@ -620,3 +620,7 @@ mod publication_transfer_options_tests {
         assert!(serde_json::from_value::<Options>(encoded).unwrap().publication_transfer);
     }
 }
+
+mod portable_recovery;
+#[doc(hidden)]
+pub use portable_recovery::{finalize as finalize_portable_recovery, verify as verify_portable_recovery};

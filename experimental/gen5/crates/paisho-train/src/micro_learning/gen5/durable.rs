@@ -114,6 +114,14 @@ fn read(path: &Path) -> Result<Bundle> {
         .and_then(|s| s.to_str())
         .and_then(|s| s.strip_suffix(".json.gz"))
         .ok_or_else(|| invalid("invalid durable bundle name"))?;
+    // A relocated record may prefix its verified content hash with its original
+    // hash, preserving the historical lexicographic catalogue order.
+    let expected = match expected.split_once("__") {
+        Some((original, content)) if original.len() == 64 && content.len() == 64
+            && original.bytes().chain(content.bytes()).all(|c| c.is_ascii_hexdigit()) => content,
+        Some(_) => return Err(invalid("invalid relocated durable bundle name")),
+        None => expected,
+    };
     if sha256(&bytes) != expected {
         return Err(invalid("durable lesson hash mismatch"));
     }
