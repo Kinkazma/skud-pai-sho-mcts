@@ -1,24 +1,17 @@
-# Publication handoff — not executed
+# Publication handoff
 
-The current instruction is to stop before creating or publishing GitHub repositories.
-No remote URL, GitHub repository or Release is created by installation or tests.
+Publication preparation is authorized. Create the actual repository and push the
+reviewed generation branches; keep `main` on Gen3.5 and Gen5 experimental.
+Use `data/release-assets.json` for the exact Release resource filenames, lengths
+and SHA-256 hashes. The optional full history uses independent TAR parts at most
+1,800,000,000 decimal bytes each. Every part is required only for its own group.
 
-After explicit publication authorization, the remaining operator actions are:
+Do not upload a whole working directory, original private Git history, caches,
+restored runs or private export journals. Publish tracked source plus the verified
+resource packs. Set the real Release URL on maintained branches, refresh source
+manifests, commit, and check installation from the actual public GitHub URLs.
+Local transport tests do not prove live delivery. Never replace published bytes
+under an existing asset version; use a new Release for changes.
 
-1. Create the actual repository and push the reviewed branches/tags. Keep `main`
-   on Gen3.5, with Gen5 clearly experimental.
-2. Attach the seven verified resource TAR files to the matching Release. Use
-   `data/release-assets.json` as the exact filename/length/SHA-256 inventory.
-   Do not upload the entire local working directory, build caches, runtime outputs,
-   ignored prepared models, personal manifests or original private Git history.
-3. Set the real Release asset directory in `data/release-assets.json:release_url`
-   on the maintained branch views, refresh their source manifests, and commit.
-4. Test the documented installation from the real downloadable source and assets,
-   including HTTPS redirects, then a short game/training continuation. Local
-   HTTP fixtures do not prove live GitHub distribution.
-
-The TAR hashes are pinned independently of the transport location. Do not replace
-an existing published archive with different bytes under the same version.
-The public source/data inventory and known limits are in [COMPLETENESS.md](COMPLETENESS.md).
-MIT applies to original code and owned weights; third-party provenance remains.
-See [INSTALL.md](INSTALL.md) for user-facing installation commands.
+See [completeness](COMPLETENESS.md), [installation](INSTALL.md), the
+[data guide](GEN5_DATA_GUIDE.md), and [historical continuation](GEN5_HISTORICAL_CONTINUATION.md).
