@@ -38,24 +38,20 @@ and final protection/persistence. This is neither a hard process-time limit nor
 a throughput benchmark, publication proof, exact historical resume or gain in
 playing strength. No tested model was promoted into the supplied frozen models.
 
-## Remaining release work
+## Scope limits recorded during initial extraction
 
 - Human corpus distribution was confirmed by the project maintainer on 2026-09-29;
   it is not automatically relicensed as MIT.
-- Finish the full historical Gen5 durable-archive/identity migration if an exact
-  campaign continuation is required; the current experimental launcher starts anew.
+- The small Gen5 launcher starts a new experiment. The full durable-state transfer
+  was subsequently completed separately; see the September 30 historical verification.
 - Reconcile/export older campaign schedules and archival reference histories beyond
   the provided model/replay snapshots; do not advertise every old run as restorable.
 - Exercise Linux CI and document Windows limits. Apple tests pass, but a complete
   historical Apple campaign continuation remains unqualified.
 - The English dashboard is a working portable controller, not yet the full old
   analysis dashboard with every chart and publication detail.
-- Create actual GitHub releases, upload verified assets and set their real URLs
-  only after the local-only instruction changes. The downloader is implemented
-  and tested locally; no remote URL is fabricated.
-
-Historical CPU Gen4 also built and passed a two-seat, eight-decision comparison
-from its own archived weights on `experimental/gen4`. This is a load check only.
+- Publication was subsequently authorized. Live release delivery is checked separately
+  from the local execution results listed here.
 
 ## Generation resource archives (2026-09-29)
 
@@ -65,7 +61,8 @@ against the per-file manifests. Gen5 has three parts; Gen3.5 replay and common
 banks each have one. Separate human and Apple groups remain optional by use.
 Six packaging tests cover exact size bounds with long/Unicode paths, deterministic
 metadata, tampering, missing parts, oversize members and overwrite refusal.
-See [the resource catalog](../data/release-assets.json). No assets were uploaded.
+See [the resource catalog](../data/release-assets.json) for the final release set.
+These initial archive counts predate the additional optional historical export.
 
 ## Fresh installation check — 29 September 2026
 
@@ -90,8 +87,12 @@ copy. No website, original campaign, frozen model or remote repository changed.
   collision before continuing the generation trials.
 - The English dashboard HTML/API returned 200 in the fresh checkout and stayed idle.
 
-These are local macOS and loopback HTTP checks. Live GitHub HTTPS distribution
-and remote CI are still pending publication authorization. Resource download code
-is ready, but its default release URL intentionally remains unset.
+These initial checks used macOS and loopback HTTP. Later live GitHub delivery
+and CI results are reported separately; the versioned catalog now pins the real
+Release URL.
 
 See [machine-readable results](onboarding-results.json).
+
+## Full Gen5 historical transfer — 30 September 2026
+
+Original/portable native FIFO bits, the next 1,024 recall reads and restored protections/evaluations match for both historical and prepared algorithms. A relocated full-state prepared continuation also generates and learns new data. The continuation found and fixed missing nested opponent-bank paths before release. See [the exact scope and results](GEN5_HISTORICAL_CONTINUATION.md) and [machine-readable evidence](gen5-history-verification.json). No original campaign was restarted.

@@ -11,7 +11,7 @@ hosting configuration are outside this export. No new model strength is claimed.
 | Gen3.2–3.4 | Frozen inference suite + compatible policy-memory trainer; weights in `models/` | Root `manage.py --generation`; common banks required | Native durable checkpoint/model/replay of new runs; not every old private campaign is exported |
 | Gen3.5 (`main`) | Residual-compatible trainer and frozen inference; weights + two common banks | Play, serve, new training and portable controller | Durable continuation tested; historical 65,536-position FIFO + 128,718 corrections supplied separately |
 | CPU Gen4 (`experimental/gen4`) | Historical micro engine and 1,703,588-update model | Native compare/selfplay commands in the branch guide | New training from weights; complete historical campaign schedule not exported |
-| CPU Gen5 (`experimental/gen5`) | Native research workspace, accepted actor, separate later learner, fixes | Bounded compare and new experiment from accepted weights | Portable pilot restores small seed archive/anchors, not the historical 327,680-position FIFO or full campaign; exact durable-archive/identity restoration remains incomplete |
+| CPU Gen5 (`experimental/gen5`) | Native research workspace, accepted actor, separate later learner, fixes | Bounded compare and new experiment from accepted weights | Separate optional historical restoration: 327,680-position FIFO, full archives and state; original/prepared algorithms distinguished. See historical guide for verified scope and future-schedule limits |
 | Apple MPSGraph | Swift service, Rust client, PPO/Adam, pure/micro network code; four pure checkpoints | Separate research tools, not a CPU Gen3/Gen5 accelerator | 54 Swift tests and checkpoint checksums passed; full historical Apple campaign continuation remains unqualified |
 | Metal / Core ML | Corpus batching and optional model-conversion research sources | Separate experimental utilities | Core ML is inference-only; no missing PyTorch backend is claimed to have been recovered |
 
@@ -24,8 +24,8 @@ hosting configuration are outside this export. No new model strength is claimed.
   for community reuse; the corpus is not automatically relicensed as MIT.
 - Gen3.5 frozen FIFO and correction sources, with relocalized indices/checksums.
 - Gen5 bank, 19,049 frozen FIFO source files, structured anchors, progress snapshot,
-  small archive subset and human input dataset mapping. These are research inputs;
-  they are not the complete historical durable store.
+  small pilot archive and human input mapping. The separate optional full-history
+  group adds all 2,984,151 durable archive files and saved recall/protection state.
 - Four Apple pure checkpoints: candidate and retained champion from two experiments.
   A candidate's presence does not imply promotion.
 

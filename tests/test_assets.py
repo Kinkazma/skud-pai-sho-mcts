@@ -1,4 +1,5 @@
 import hashlib
+import gzip
 import json
 import tarfile
 import tempfile
@@ -79,6 +80,39 @@ class ResourcePacks(unittest.TestCase):
             stream.write(b'changed')
         with self.assertRaisesRegex(ValueError, 'SHA-256 mismatch'):
             assets.verify_packs(self.root, 'test', out)
+
+    def test_sharded_manifest_keeps_multipart_contents_and_detects_corruption(self):
+        entries = self.fixture({'assets/a': b'a'*8000,'assets/b': b'b'*8000})
+        shards = []
+        for i,(name,entry) in enumerate(entries.items()):
+            path = self.root/f'data/manifests/part-{i}.json.gz'
+            body = gzip.compress(json.dumps({name:entry}).encode(),mtime=0)
+            path.write_bytes(body)
+            shards.append({'path':str(path.relative_to(self.root)),'sha256':hashlib.sha256(body).hexdigest()})
+        manifest = self.root/'data/manifests/test.json'
+        manifest.write_text(json.dumps({'files':{},'shards':shards}))
+        out = self.root/'out'
+        result = assets.pack(self.root,'test',out,limit=10240)
+        self.assertEqual(len(result['parts']),2)
+        self.assertEqual(assets.verify_packs(self.root,'test',out),2)
+        (self.root/shards[0]['path']).write_bytes(b'corrupt')
+        with self.assertRaisesRegex(ValueError,'Manifest shard hash mismatch'):
+            assets.entries_for(self.root,'test')
+
+    def test_sharded_manifest_rejects_duplicate_members_and_parent_paths(self):
+        entries = self.fixture({'assets/a':b'a'})
+        path = self.root/'data/manifests/shard.json.gz'
+        body = gzip.compress(json.dumps(entries).encode(),mtime=0)
+        path.write_bytes(body)
+        spec = {'path':'data/manifests/shard.json.gz','sha256':hashlib.sha256(body).hexdigest()}
+        manifest = self.root/'data/manifests/test.json'
+        manifest.write_text(json.dumps({'files':entries,'shards':[spec]}))
+        with self.assertRaisesRegex(ValueError,'Duplicate resource'):
+            assets.entries_for(self.root,'test')
+        spec['path']='data/manifests/../../outside.gz'
+        manifest.write_text(json.dumps({'shards':[spec]}))
+        with self.assertRaisesRegex(ValueError,'Invalid manifest shard path'):
+            assets.entries_for(self.root,'test')
 
 
 if __name__ == '__main__':

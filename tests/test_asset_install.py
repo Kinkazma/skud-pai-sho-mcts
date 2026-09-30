@@ -1,5 +1,6 @@
 import contextlib
 import hashlib
+import gzip
 import http.server
 import io
 import json
@@ -134,10 +135,41 @@ class Installer(unittest.TestCase):
             self.install(source_dir=self.archives)
         self.assertFalse((self.root/'assets').exists())
 
+    def test_later_generation_requirement_prevents_earlier_downloads(self):
+        self.catalog['groups']['later'] = {'required_sources': ['experimental/missing.py'], 'parts': []}
+        self.save_catalog()
+        with patch('scripts.asset_install.download', side_effect=AssertionError('download')):
+            with self.assertRaisesRegex(ValueError, 'switch to its documented branch'):
+                install(['demo', 'later'], base_url='https://example.com/release', root=self.root)
+        self.assertFalse((self.root/'assets').exists())
+
     def test_no_fake_release_url(self):
         with self.assertRaisesRegex(ValueError, 'No published release URL'):
             self.install()
         self.assertFalse((self.root/'assets').exists())
+
+    def test_optional_index_is_installed_before_history_and_reused(self):
+        manifest = self.source/'data/manifests/demo.json'
+        rows = json.loads(manifest.read_text())['files']
+        shard = self.source/'data/manifests/demo-index/0001.json.gz'
+        shard.parent.mkdir()
+        shard.write_bytes(gzip.compress(json.dumps(rows).encode(), mtime=0))
+        name = str(shard.relative_to(self.source))
+        entry = {'bytes': shard.stat().st_size,
+                 'sha256': hashlib.sha256(shard.read_bytes()).hexdigest()}
+        for root in [self.source, self.root]:
+            (root/'data/manifests/demo-index.json').write_text(json.dumps({'files': {name: entry}}))
+            (root/'data/manifests/demo.json').write_text(json.dumps({'shards': [{'path': name, **entry}]}))
+        index = pack(self.source, 'demo-index', self.archives)
+        self.catalog['groups']['demo-index'] = index
+        self.save_catalog()
+        with self.assertRaisesRegex(ValueError, 'Missing optional manifest index'):
+            self.install(source_dir=self.archives)
+        result = install(['demo-index', 'demo'], source_dir=self.archives, root=self.root)
+        self.assertEqual([r['installed_files'] for r in result], [1, 2])
+        with patch('scripts.asset_install.download', side_effect=AssertionError('download')):
+            result = install(['demo-index', 'demo'], root=self.root)
+        self.assertTrue(all(r['status'] == 'already-verified' for r in result))
 
     def test_http_download_then_reuse_verified_cache(self):
         with serve(self.archives) as (url, requests):
