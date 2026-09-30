@@ -96,3 +96,7 @@ See [machine-readable results](onboarding-results.json).
 ## Full Gen5 historical transfer — 30 September 2026
 
 Original/portable native FIFO bits, the next 1,024 recall reads and restored protections/evaluations match for both historical and prepared algorithms. A relocated full-state prepared continuation also generates and learns new data. The continuation found and fixed missing nested opponent-bank paths before release. See [the exact scope and results](GEN5_HISTORICAL_CONTINUATION.md) and [machine-readable evidence](gen5-history-verification.json). No original campaign was restarted.
+
+## GitHub release delivery
+
+The final resource catalog records the actual GitHub Release URL and independently matched remote asset SHA-256 digests. The optional full-history TAR members were all reread against the per-file manifests locally. Live clone/install/play results are attached to the Release as `github-verification.json`; they distinguish actual downloads from the full-history remote digest checks. The large historical set is not downloaded a second time merely to repeat those hashes.
