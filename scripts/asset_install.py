@@ -78,11 +78,14 @@ def install(groups, source_dir=None, base_url=None, repair=False, root=ROOT):
     source_dir = Path(source_dir).resolve() if source_dir is not None else None
     base_url = base_url or catalog.get('release_url')
     results = []
+    # Check the whole profile before downloading any earlier shared group.
     for group in groups:
         spec = catalog['groups'][group]
         for required in spec.get('required_sources', []):
             if not destination(root, required).is_file():
                 raise ValueError('Missing generation source: ' + required + '; switch to its documented branch first.')
+    for group in groups:
+        spec = catalog['groups'][group]
         entries = entries_for(root, group)
         valid = True
         for name, entry in entries.items():
