@@ -1,0 +1,78 @@
+{
+  "schema": "paisho-gen5-historical-portability-verification-v1",
+  "date": "2026-09-30",
+  "native_restore": {
+    "prepared": {
+      "updates": 5131788,
+      "replay_positions": 327680,
+      "fifo_bits": {
+        "bytes": 32550416241,
+        "correction_positions": 7801,
+        "positions": 327680,
+        "sha256": "b41e9c39d597a9951986bcbd5f77997b5e32276cb1d9fef63f15cebe1cc61d8e"
+      },
+      "recall_draws": 1024,
+      "recall_sha256": "428a251e83697e5b606c51da3f31f160334922a1f876eb83d5bb4e49e213892c",
+      "guard_and_acquisitions_restored": true,
+      "protection_restored": true,
+      "frozen_evaluations_restored": true,
+      "original_comparison_exact": true
+    },
+    "last-campaign": {
+      "updates": 5131788,
+      "replay_positions": 327680,
+      "fifo_bits": {
+        "bytes": 32550416241,
+        "correction_positions": 7801,
+        "positions": 327680,
+        "sha256": "b41e9c39d597a9951986bcbd5f77997b5e32276cb1d9fef63f15cebe1cc61d8e"
+      },
+      "recall_draws": 1024,
+      "recall_sha256": "509b548cafadebb722aa5f1e514648b47ea1792cf81ccb9b7ae9ebbd1c4feee5",
+      "guard_and_acquisitions_restored": true,
+      "protection_restored": true,
+      "frozen_evaluations_restored": true,
+      "original_comparison_exact": true
+    }
+  },
+  "relocated_restore_exact": true,
+  "continuation": {
+    "updates_before": 5131788,
+    "updates_after": 5131913,
+    "completed_before": 1207968,
+    "completed_after": 1208030,
+    "errors": [],
+    "original_campaign_modified": false,
+    "algorithm": "prepared",
+    "seconds_including_load": 300,
+    "elapsed_seconds": 301.1653278339945,
+    "strength_claim": false,
+    "lane_deltas": {
+      "Historical": {
+        "games": 6,
+        "terminal": 6,
+        "decisions": 208,
+        "fresh_used": 208
+      },
+      "Reanalysis": {
+        "games": 35,
+        "terminal": 0,
+        "decisions": 0,
+        "fresh_used": 23
+      },
+      "Selfplay": {
+        "games": 21,
+        "terminal": 19,
+        "decisions": 1977,
+        "fresh_used": 970
+      }
+    },
+    "game_receipts_excluding_reanalysis": 27,
+    "terminal_games": 25,
+    "ram_load_seconds": 199.91820970899425
+  },
+  "initial_learner_and_actor_separate": true,
+  "unaccepted_weights_promoted": false,
+  "historical_in_flight_workers_restored": false,
+  "future_schedule_bitwise_guaranteed": false
+}

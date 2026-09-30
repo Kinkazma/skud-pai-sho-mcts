@@ -2,6 +2,7 @@
 """List, install, verify or package release resources. Never uploads anything."""
 import argparse
 import hashlib
+import gzip
 import json
 import tarfile
 from pathlib import Path, PurePosixPath
@@ -17,7 +18,10 @@ PROFILES = {
     'gen35-replay': ['core-memory', 'gen35-replay'],
     'human': ['human'],
     'gen4': [],
-    'gen5': ['core-memory', 'human', 'gen5'],
+    'gen5-play': ['core-memory', 'gen5-memory'],
+    'gen5': ['core-memory', 'human', 'gen5-memory', 'gen5-learning'],
+    'gen5-legacy-bundle': ['core-memory', 'human', 'gen5'],
+    'gen5-history': ['core-memory', 'human', 'gen5-memory', 'gen5-learning', 'gen5-history-index', 'gen5-history'],
     'apple': ['apple'],
 }
 
@@ -34,7 +38,23 @@ def entries_for(root, group):
     path = root / 'data/manifests' / (group + '.json')
     if Path(group).name != group or not path.is_file():
         raise ValueError('Unknown resource group; see data/ASSETS.md')
-    entries = json.loads(path.read_text())['files']
+    manifest = json.loads(path.read_text())
+    entries = dict(manifest.get('files', {}))
+    for shard in manifest.get('shards', []):
+        name = shard['path']
+        rel = PurePosixPath(name)
+        if rel.is_absolute() or '..' in rel.parts or not name.startswith('data/manifests/'):
+            raise ValueError('Invalid manifest shard path')
+        source = root / name
+        if not source.is_file():
+            raise ValueError('Missing optional manifest index: ' + name
+                             + '; install the complete gen5-history profile first.')
+        if source.is_symlink() or digest(source) != shard['sha256']:
+            raise ValueError('Manifest shard hash mismatch: ' + name)
+        rows = json.loads(gzip.decompress(source.read_bytes()))
+        if entries.keys() & rows.keys():
+            raise ValueError('Duplicate resource across manifest shards')
+        entries.update(rows)
     for name in entries:
         rel = PurePosixPath(name)
         if rel.is_absolute() or '..' in rel.parts or str(rel) != name:

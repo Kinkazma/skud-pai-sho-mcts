@@ -1,6 +1,7 @@
 # Install, play, train and continue
 
-This is a local release draft. No public asset URL is configured yet.
+The matching resource URL is recorded in `data/release-assets.json`.
+The installer downloads only the selected generation/profile.
 Replace the example download directory with your own; quote paths containing spaces. All commands
 below run from the repository root. No campaign starts during installation.
 
@@ -17,13 +18,14 @@ Apple experiments need macOS, Xcode/Swift and their separate instructions in
 
 ## Install resources and build Gen3
 
-If you already have the release TAR files in a download directory:
+For automatic verified downloads from the matching GitHub Release:
 
 ```sh
 python3 manage.py doctor
-python3 manage.py setup --asset-dir /path/to/downloads
+python3 manage.py setup
 ```
 
+For already downloaded TAR files, add `--asset-dir /path/to/downloads`.
 This verifies and installs the common banks, compiles the compatible trainer and
 frozen inference engine, then prepares machine-local paths. A subsequent `setup`
 reuses intact resources. It does not re-download or rewrite verified data.
@@ -40,10 +42,9 @@ checkpoints use `--resource-profile apple`. See [resource groups](../data/ASSETS
 for all required filenames, sizes and hashes. A Git clone and GitHub's automatic
 source ZIP do not include these TAR files.
 
-The HTTPS downloader is implemented. Once a real release exists, its asset base
-URL can be passed with `--asset-base-url` instead of `--asset-dir`, or supplied in
-the versioned catalog's `release_url`. The base URL is the directory ending in the
-release tag, before the archive filename. No fictitious download URL is shipped.
+The HTTPS downloader uses the versioned catalog's `release_url`. A mirror URL
+can be passed with `--asset-base-url` instead of `--asset-dir`. The base URL is the directory ending in the
+release tag, before the archive filename. 
 The downloader follows HTTPS redirects, verifies size and SHA-256, caches complete
 archives, and resumes interrupted `.partial` downloads when the server supports
 Range. If Range is ignored, it restarts that archive safely. Loopback HTTP is
@@ -92,9 +93,16 @@ python3 experimental/gen5/manage.py build
 python3 experimental/gen5/manage.py prepare
 ```
 
-This installs the common banks, human corpus and all three Gen5 parts. The branch's
+This installs the common banks, human corpus, `gen5-memory` and `gen5-learning`
+parts (about 638 MB total). `--profile gen5-play` needs only the banks for a
+comparison (about 583 MB). Neither includes the historical FIFO or full archive.
+The optional historical set uses separately numbered parts of at most 1.8 GB;
+the installer reconstructs their common directory tree without concatenation.
+The branch's
 research guide provides its bounded play/training commands and distinguishes a
-new experiment from an exact historical campaign resume. The latter is incomplete.
+new experiment from the optional [historical continuation](GEN5_HISTORICAL_CONTINUATION.md).
+The `gen5-history` profile automatically installs its separate file index before
+the full archive parts. The index is also optional and is not stored in Git.
 Installing the assets does not solve Gen5's unproven long-term learning behavior.
 
 ## Verification, interruption and recovery
