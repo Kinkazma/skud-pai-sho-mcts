@@ -1,6 +1,6 @@
 {
-  "status": "local-preparation-not-uploaded",
-  "release_url": null,
+  "status": "publication-in-progress",
+  "release_url": "https://github.com/Kinkazma/skud-pai-sho-mcts/releases/download/v0.1.0",
   "max_archive_bytes": 1800000000,
   "size_unit": "decimal bytes; includes archive metadata",
   "profiles": {
@@ -15,10 +15,28 @@
       "human"
     ],
     "gen4": [],
+    "gen5-play": [
+      "core-memory",
+      "gen5-memory"
+    ],
     "gen5": [
       "core-memory",
       "human",
+      "gen5-memory",
+      "gen5-learning"
+    ],
+    "gen5-legacy-bundle": [
+      "core-memory",
+      "human",
       "gen5"
+    ],
+    "gen5-history": [
+      "core-memory",
+      "human",
+      "gen5-memory",
+      "gen5-learning",
+      "gen5-history-index",
+      "gen5-history"
     ],
     "apple": [
       "apple"
@@ -108,7 +126,73 @@
       "required_sources": [
         "experimental/gen5/manage.py",
         "experimental/gen5/models/accepted.json"
+      ],
+      "description": "Legacy combined export, retained for compatibility; not required by the smaller current Gen5 play or new-training profiles."
+    },
+    "gen5-memory": {
+      "files": 2,
+      "bytes": 386997442,
+      "manifest": "data/manifests/gen5-memory.json",
+      "parts": [
+        {
+          "file": "gen5-memory-01.tar",
+          "bytes": 387000320,
+          "sha256": "ecdc4c8f0fed686fe6f2d1aba661a51e452d3154e01eeb9c28cf3e4d8364f2fb",
+          "files": 2
+        }
+      ],
+      "archive_bytes": 387000320,
+      "required_sources": [
+        "experimental/gen5/manage.py"
       ]
+    },
+    "gen5-learning": {
+      "files": 130,
+      "bytes": 45405365,
+      "manifest": "data/manifests/gen5-learning.json",
+      "parts": [
+        {
+          "file": "gen5-learning-01.tar",
+          "bytes": 45506560,
+          "sha256": "5e107549dd834a780c8093aaf0c8c94e19d4a12d896c2b45e60c05ebec5b8604",
+          "files": 130
+        }
+      ],
+      "archive_bytes": 45506560,
+      "required_sources": [
+        "experimental/gen5/manage.py"
+      ]
+    },
+    "gen5-history": {
+      "files": 3003343,
+      "bytes": 56760895726,
+      "manifest": "data/manifests/gen5-history.json",
+      "optional": true,
+      "status": "indexed-not-packaged",
+      "parts": [],
+      "required_sources": [
+        "experimental/gen5/manage.py"
+      ],
+      "description": "Complete historical durable state; not required for play or a new training pilot."
+    },
+    "gen5-history-index": {
+      "files": 301,
+      "bytes": 250600130,
+      "manifest": "data/manifests/gen5-history-index.json",
+      "parts": [
+        {
+          "file": "gen5-history-index-01.tar",
+          "bytes": 250839040,
+          "sha256": "dbb3f4a7288b87903f29b6db5ac0f97035a74b586a38ac59d9e49061fac7c14e",
+          "files": 301
+        }
+      ],
+      "archive_bytes": 250839040,
+      "optional": true,
+      "required_sources": [
+        "experimental/gen5/manage.py"
+      ],
+      "description": "Verified file index, automatically installed before the optional full history."
     }
   }
 }
