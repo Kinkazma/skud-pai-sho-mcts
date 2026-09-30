@@ -104,3 +104,7 @@ Restoring that state does not promise the identical future trajectory on another
 machine: asynchronous scheduling and wall-clock limits can change future games.
 Historical checkpoints also do not contain every in-flight game or transient
 cache. Documentation remains available without downloading any historical data.
+
+## Final optional download sizes
+
+The full historical state uses **35 independent TAR parts**, totaling **62,118,840,320 bytes**. Its optional file-index archive adds **250,839,040 bytes**. Shared banks, human data and the small learning inputs are additional only if not already installed. Every part is at most 1,800,000,000 decimal bytes.
