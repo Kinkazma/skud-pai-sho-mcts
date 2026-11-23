@@ -1,0 +1,32 @@
+[
+  {
+    "generation": "3.1",
+    "model": "models/gen3-1.json",
+    "sha256": "1bef48f826a429df934dbc2c436f498b8a7c6e245e31ebfba9f25927460ea5e6",
+    "solver": false
+  },
+  {
+    "generation": "3.2",
+    "model": "models/gen3-2.json",
+    "sha256": "35c040094dcf1bd66166b91ed8cbacd2eb03f98e9f8f44fb0919eac2f5c4ad06",
+    "solver": false
+  },
+  {
+    "generation": "3.3",
+    "model": "models/gen3-3.json",
+    "sha256": "9097788fb2ba0ccd0ef2a57c7cdd0c1b0a86c9bd9106d480deb5dbdc1ca06944",
+    "solver": true
+  },
+  {
+    "generation": "3.4",
+    "model": "models/gen3-4.json",
+    "sha256": "526a2c1d4fdd8882c71f51d59424af521b3114c9f46ea4a260d9d4ebc7b0c119",
+    "solver": true
+  },
+  {
+    "generation": "3.5",
+    "model": "models/gen3-5.json",
+    "sha256": "c190204a23752e2eff0a1ace1a5236535fa2e4d4c4f8a0fc90bc1f3e4f54ea16",
+    "solver": true
+  }
+]

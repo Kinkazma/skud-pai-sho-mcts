@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+native/target/
+.storage.lock
+data/
+runs/

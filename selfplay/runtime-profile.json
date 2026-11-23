@@ -1,0 +1,23 @@
+{
+  "engine_workers": 4,
+  "cpu_threads": 2,
+  "execution": {
+    "adam_foreach": true,
+    "clip_foreach": false,
+    "async_transfer": true
+  },
+  "cache_parameters": true,
+  "broadcast_identical": false,
+  "cache_spatial_bias": true,
+  "cache_geometry": true,
+  "numpy_inputs": true,
+  "async_inputs": true,
+  "cpu_canonical_inputs": true,
+  "cache_chronology": true,
+  "cache_layer_biases": true,
+  "cache_history_inputs": true,
+  "retain_workspaces": true,
+  "skip_forced_groups": true,
+  "live_behavior": true,
+  "async_checkpoints": true
+}

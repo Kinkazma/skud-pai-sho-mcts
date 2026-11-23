@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "selected": {
+    "engine_workers": 8,
+    "cpu_threads": 2,
+    "prefetch": true
+  },
+  "torch": "2.14.1",
+  "device": "mps",
+  "execution": {
+    "adam_foreach": true,
+    "clip_foreach": false,
+    "async_transfer": true
+  }
+}

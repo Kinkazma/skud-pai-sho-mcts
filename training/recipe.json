@@ -1,0 +1,30 @@
+{
+  "human": {
+    "asset_group": "human",
+    "index": "data/human/records.json",
+    "index_sha256": "4bcbe8891a9508ad4865210b025b81d5ce83d5c7430456f068d08ebe629a9bdc",
+    "validation_fraction": 0.2,
+    "split_seed": 107,
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "epoch_target": 100
+  },
+  "mixed_ppo": {
+    "reward_profile": "terminal-speed-half-v1",
+    "entropy_weight": 0.01,
+    "initial_board": "empty",
+    "decision_limit": 700,
+    "selfplay_share_of_launches": 0.5,
+    "mcts_share_of_launches": 0.5,
+    "budget_steps": [1, 2, 3, 4, 6, 8, 16, 32, 64, 128],
+    "min_decisive_games": 100,
+    "max_decisive_window": 200,
+    "min_win_fraction": 0.5,
+    "budgets_at_reference": {"3.1": 1, "3.2": 1, "3.3": 1, "3.4": 2, "3.5": 2}
+  },
+  "upstream": {
+    "branch": "main",
+    "revision": "2c8e51649de00b3dd57ccd4ddf76718cd581a96d",
+    "mcts_asset_group": "core-memory"
+  }
+}

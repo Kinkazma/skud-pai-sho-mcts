@@ -1,0 +1,23 @@
+{
+  "files": {
+    "Cargo.toml": "fd0b4e7c98e73105feb0a5c83e5b9796505019745723f6311e278b51cd341473",
+    "LICENSE": "20f5475892f79674931a79eaeeb23a032bc971e07c09d63e7c67a3a8a27bb09f",
+    "src/accent.rs": "49d34abdccf998ea791451df74fcbcfc193c90fa31f4e48737abb32917244944",
+    "src/board.rs": "39a85519d2b4951a6f259b37bfc43a8ab5b37e51172ad41847ba0dfd90737514",
+    "src/coordinate.rs": "6071d62d632579bf5e91de91ff5ee659d62b3bcb614d2621efaf907d153f544a",
+    "src/game.rs": "9007375ffae24f2b0bf4f67e0a235f9516aef6002c7524ce823dc1d307f8097b",
+    "src/harmony.rs": "ce7be17482d1b8bf892fd5d488c290af6c342b8beba0ffb846d94fe767318d76",
+    "src/legality.rs": "466214c2383a4867daae74845b1bfc288bbfddec9b88a8dcb7b5ce15bba0a06d",
+    "src/lib.rs": "9f016c66c7241866245ef0cd7ea6cc84d189d59348218677940ef8714fb156fb",
+    "src/movement.rs": "0119ba3e44d5b75ecec6bdfdbb5eebb045fea0d5ddabe712eba1e0b6cc6c1f01",
+    "src/notation.rs": "be92b35d898bed8485d55f4211e5b989d05e0b66402a1d57886ca541c5e3e4c2",
+    "src/player.rs": "47f6934f45142509d213d11fb3a95adecf2ce79ea6e615af863a1206c99591f5",
+    "src/record.rs": "5c9f37d48f2707af0b1e3763b5444fb3c260b845af0f8cb3c7717d4a65e96e19",
+    "src/reserve.rs": "6572560d19ff067189aa2a0ba9c5f73fac37f657be475fd401d65e567c50755e",
+    "src/ring.rs": "cb50f889e247055db8bad1c16969c1f3e1e8055f6e4b258399ea08e42b145edf",
+    "src/rules.rs": "e70d06898c3f3e92d6ad92452f4031c6789cad95cb34d0750d3c3fd6211afcf8",
+    "src/setup.rs": "40c5ac4e423e0916447db694799cbe52cd9e0f5cb61dd35cd21736c6f40a33c2",
+    "src/tile.rs": "bc9754ef0d9fe0aec47a0b5ac238cce41357dba016a4c96953e23cc1e03161fa",
+    "src/topology.rs": "e917ddef02af9a0a5e8b8ac0ee187d88d778404f6b197087de0a1f719149d5a8"
+  }
+}
